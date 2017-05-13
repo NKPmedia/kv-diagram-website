@@ -7,12 +7,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { LogicInputComponent } from './logic-input/logic-input.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BasicLogicPhraseInfoComponent } from './basic-logic-phrase-info/basic-logic-phrase-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogicInputComponent,
     NavbarComponent,
+    BasicLogicPhraseInfoComponent,
   ],
   imports: [
     BrowserModule,

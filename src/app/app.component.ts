@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  welcomeMessage = "Hallo hier kommt ein Text hin";
 }

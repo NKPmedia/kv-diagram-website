@@ -1,6 +1,11 @@
-<h1>
-
-
-<div class="row">
-  <app-logic-input></app-logic-input>
+<app-navbar></app-navbar>
+<div class="container">
+  <br>
+  <h1>
+    {{welcomeMessage}}
+  </h1>
+  <div class="row">
+    <app-logic-input #logicInput [basicLogicPhraseInfoCom]="basicLogicPhraseInfoCom"></app-logic-input>
+    <app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info>
+  </div>
 </div>
