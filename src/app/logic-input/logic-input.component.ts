@@ -17,7 +17,7 @@ export class LogicInputComponent implements OnInit {
   @Input()
   kvDiagramCom: KVDiagramComponent;
 
-  private logicPhraseString = "";
+  logicPhraseString = "";
   private logicPhrase: LogicPhrase;
 
   constructor(private basicLogicPhraseParser: BasicLogicPhraseParser) { }
