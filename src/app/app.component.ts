@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
-  welcomeMessage = "Hallo hier kommt ein Text hin";
+  title = 'KV-Toolbox';
+  welcomeMessage = "Das ist eine KV-Toolbox";
 }

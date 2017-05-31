@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {LogicPhrase} from "../phrase/logic-phrase";
-import {KVDiagram} from "../kv-diagram/kvdiagram";
-import {KvDiagramGenerator} from "../kv-diagram/kv-diagram-generator";
-import {KvDiagramEntry} from "../kv-diagram/kv-diagram-entry";
+import {KVDiagram} from "../kv-diagram-model/kvdiagram";
+import {KvDiagramGenerator} from "../kv-diagram-model/kv-diagram-generator";
+import {KvDiagramEntry} from "../kv-diagram-model/kv-diagram-entry";
 
 @Component({
   selector: 'app-kvdiagramm',

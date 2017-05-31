@@ -13,12 +13,12 @@ export class BasicLogicPhraseParser {
    * @param phrase
    * @returns {LogicPhrase}
    */
-  parse(phrase: string): LogicPhrase {
+  parse(phrase: string, extraVars: string): LogicPhrase {
     let length = phrase.length;
 
     phrase = StringMethods.replaceAll(phrase, " ", "");
 
-    let varNames = this.getVarNames(phrase);
+    let varNames = this.getVarNames(phrase,extraVars);
 
     let logicPhrase = new LogicPhrase(length, varNames, phrase);
     return logicPhrase;
@@ -29,8 +29,15 @@ export class BasicLogicPhraseParser {
    * @param phrase
    * @returns {string[]}
    */
-  getVarNames(phrase: string): string[] {
+  getVarNames(phrase: string, extraVars: string): string[] {
     let varNames:string[] = new Array();
+
+    //Parse the extraVars
+    for(let varName of extraVars.split(" ")) {
+      varNames.push(varName);
+    }
+
+    //Parse the phrase
     let actualName: string = "";
     for(let char of phrase) {
       if(this.keyChars.includes(char)) {

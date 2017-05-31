@@ -10,6 +10,19 @@
           </textarea>
         </div>
       </div>
+      <div class="form-group row">
+        <label for="logicPhrase" class="col-2 col-form-label">Zusätzliche Variablen</label>
+        <div class="col-10">
+          <textarea class="form-control" [(ngModel)]="logicExtraVars" type="textarea" value="" id="logicExtraVars">
+          </textarea>
+        </div>
+
+        <div class="col-12">
+          Hier kannst du zusätzliche Variablen angeben, falls der Logische Ausdruck nicht in der DNF sondern nur in  der DF ist.
+          (Trenne über " ")
+        </div>
+
+      </div>
       <div class="row">
         <br>
         <div class="col-4">
