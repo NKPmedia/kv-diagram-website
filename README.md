@@ -3,6 +3,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 
+You can find a ready to use website folder with index.html and js files under /dist
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
