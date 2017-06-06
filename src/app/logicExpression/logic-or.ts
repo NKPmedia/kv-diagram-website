@@ -8,7 +8,7 @@ export class LogicOr extends AbstractLogicExpression {
   phraseToString(): string {
     let result: string = "(";
     for(let expression of this.logicChildExpressions) {
-      result += expression.toString() +  "+";
+      result += expression.phraseToString() +  "+";
     }
     result = result.substring(0, result.length - 1);
     result += ")";

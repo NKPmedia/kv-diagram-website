@@ -12,7 +12,7 @@ export class LogicExpression extends AbstractLogicExpression {
 
   phraseToString(): string {
     if (typeof this._logicChildExpressions[0] !== 'undefined') {
-      return this._logicChildExpressions[0].toString();
+      return this._logicChildExpressions[0].phraseToString();
     }
     return '';
   }
@@ -26,6 +26,9 @@ export class LogicExpression extends AbstractLogicExpression {
   }
 
   public toString(): string {
+    if (typeof this._logicChildExpressions[0] !== 'undefined') {
+      return this._logicChildExpressions[0].toString();
+    }
     return '';
   }
 

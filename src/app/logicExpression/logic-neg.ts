@@ -7,7 +7,7 @@ export class LogicNeg extends AbstractLogicExpression {
 
   phraseToString(): string {
     if(typeof this._logicChildExpressions[0] !== "undefined") {
-      return "~"+this._logicChildExpressions[0].toString();
+      return "~"+this._logicChildExpressions[0].phraseToString();
     } else {
       return "";
     }
