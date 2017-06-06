@@ -1,23 +1,23 @@
-import {AbstractLogicExpression} from "./logic-expression-abstract";
-import {LogicVar} from "./logic-var";
-import {LogicAnd} from "./logic-and";
-import {LogicOr} from "./logic-or";
-import {LogicNeg} from "./logic-neg";
-import {LogicBracketClose} from "./logic-bracket-close";
-import {LogicBracketOpen} from "./logic-bracket-open";
-import {ShuntingYard} from "./shunting-yard";
-import * as owl from "../copy";
+import {AbstractLogicExpression} from './logic-expression-abstract';
+import {LogicVar} from './logic-var';
+import {LogicAnd} from './logic-and';
+import {LogicOr} from './logic-or';
+import {LogicNeg} from './logic-neg';
+import {LogicBracketClose} from './logic-bracket-close';
+import {LogicBracketOpen} from './logic-bracket-open';
+import {ShuntingYard} from './shunting-yard';
+import * as _ from 'lodash';
 
 export class LogicExpression extends AbstractLogicExpression {
 
   phraseToString(): string {
-    if (typeof this._logicChildExpressions[0] !== "undefined") {
+    if (typeof this._logicChildExpressions[0] !== 'undefined') {
       return this._logicChildExpressions[0].toString();
     }
-    return "";
+    return '';
   }
 
-  private possibleOperands: string[] = Array("~","+","*","(",")");
+  private possibleOperands: string[] = Array('~', '+', '*', '(', ')');
   private _shuntedPhrase: Array<AbstractLogicExpression> = Array();
 
 
@@ -26,11 +26,11 @@ export class LogicExpression extends AbstractLogicExpression {
   }
 
   public toString(): string {
-    return "";
+    return '';
   }
 
   public getResult(): boolean {
-    if(typeof this._logicChildExpressions[0] !== "undefined") {
+    if (typeof this._logicChildExpressions[0] !== 'undefined') {
       return this._logicChildExpressions[0].getResult();
     }
     return false;
@@ -38,44 +38,46 @@ export class LogicExpression extends AbstractLogicExpression {
 
   public parseLogicString(logicPhrase: string) {
 
-    let logicObjectPhrase = this.logicStringToObjectAarray(logicPhrase);
+    const logicObjectPhrase = this.logicStringToObjectAarray(logicPhrase);
 
-    let shuntigYard = new ShuntingYard();
+    const shuntigYard = new ShuntingYard();
     this._shuntedPhrase = shuntigYard.startAlgo(logicObjectPhrase);
 
-    this.logicChildExpressions = this.parseShuntedYard(owl.deepCopy(this._shuntedPhrase,100));
+    const clonedShuntedPhrase: Array<AbstractLogicExpression> = _.cloneDeep(this._shuntedPhrase);
+
+    this.logicChildExpressions = this.parseShuntedYard(clonedShuntedPhrase);
 
   }
 
   private logicStringToObjectAarray(logicPhrase: string) {
-    let logicObjectPhrase = Array();
+    const logicObjectPhrase = Array();
 
-    let actualConjunction: string = "";
-    let actualVarName: string = "";
+    const actualConjunction = '';
+    let actualVarName = '';
 
 
-    for(let i = 0; i < logicPhrase.length; i++) {
-      if(this.possibleOperands.indexOf(logicPhrase[i]) != -1 && actualVarName != "") {
+    for (let i = 0; i < logicPhrase.length; i++) {
+      if (this.possibleOperands.indexOf(logicPhrase[i]) != -1 && actualVarName != '') {
         logicObjectPhrase.push(new LogicVar(actualVarName));
-        actualVarName = "";
+        actualVarName = '';
       }
-      if(logicPhrase[i] == "~") {
+      if (logicPhrase[i] == '~') {
         logicObjectPhrase.push(new LogicNeg());
       }
 
-      else if(logicPhrase[i] == "+") {
+      else if (logicPhrase[i] == '+') {
         logicObjectPhrase.push(new LogicOr());
       }
 
-      else if(logicPhrase[i] == "*") {
+      else if (logicPhrase[i] == '*') {
         logicObjectPhrase.push(new LogicAnd());
       }
 
-      else if(logicPhrase[i] == "(") {
+      else if (logicPhrase[i] == '(') {
         logicObjectPhrase.push(new LogicBracketOpen());
       }
 
-      else if(logicPhrase[i] == ")") {
+      else if (logicPhrase[i] == ')') {
         logicObjectPhrase.push(new LogicBracketClose());
       }
 
@@ -83,32 +85,41 @@ export class LogicExpression extends AbstractLogicExpression {
         actualVarName += logicPhrase[i];
       }
     }
-    if(actualVarName != "") logicObjectPhrase.push(new LogicVar(actualVarName));
+    if (actualVarName != '') logicObjectPhrase.push(new LogicVar(actualVarName));
     return logicObjectPhrase;
   }
 
   private parseShuntedYard(_shuntedPhrase: Array<AbstractLogicExpression>): Array<AbstractLogicExpression> {
 
-    let logicObjects: Array<AbstractLogicExpression> = this.reverseArray(_shuntedPhrase);
-    let logicObjectResults: Array<AbstractLogicExpression> = Array();
+    const logicObjects: Array<AbstractLogicExpression> = this.reverseArray(_shuntedPhrase);
+    const logicObjectResults: Array<AbstractLogicExpression> = Array();
 
-    while(logicObjects.length > 0) {
+    while (logicObjects.length > 0) {
       let logicObject = logicObjects.pop();
 
-      while(logicObject.parsed) {
-        logicObjectResults.push(logicObject)
+      while (logicObject.parsed && logicObjects.length > 0) {
+        logicObjectResults.push(logicObject);
         logicObject = logicObjects.pop();
       }
+      if (logicObject.parsed) {
+        logicObjects.push(logicObject);
+        return logicObjects;
+      }
 
-      if(logicObject instanceof LogicNeg) {
+      if (logicObject instanceof LogicNeg) {
+        const var1 = logicObjectResults.pop();
+        logicObject.add(var1);
+        logicObject.parsed = true;
+        logicObjects.push(logicObject);
+      }
 
-      } else {
-        let var1 = logicObjectResults.pop();
-        let var2 = logicObjectResults.pop();
+      else {
+        const var1 = logicObjectResults.pop();
+        const var2 = logicObjectResults.pop();
         logicObject.add(var1);
         logicObject.add(var2);
         logicObject.parsed = true;
-        logicObjectResults.push(logicObject);
+        logicObjects.push(logicObject);
       }
     }
 
@@ -116,8 +127,8 @@ export class LogicExpression extends AbstractLogicExpression {
   }
 
   private reverseArray(array: Array<AbstractLogicExpression>): Array<AbstractLogicExpression> {
-    let arrayR = Array();
-    while(array.length > 0) {
+    const arrayR = Array();
+    while (array.length > 0) {
       arrayR.push(array.pop());
     }
     return arrayR;
