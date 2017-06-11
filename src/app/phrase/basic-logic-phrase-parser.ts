@@ -34,7 +34,7 @@ export class BasicLogicPhraseParser {
 
     //Parse the extraVars
     for(let varName of extraVars.split(" ")) {
-      varNames.push(varName);
+      if(varName != "") varNames.push(varName);
     }
 
     //Parse the phrase

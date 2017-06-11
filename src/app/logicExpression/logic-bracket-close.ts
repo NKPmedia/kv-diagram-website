@@ -2,6 +2,8 @@ import {AbstractLogicExpression} from "./logic-expression-abstract";
 
 export class LogicBracketClose extends AbstractLogicExpression{
 
+  protected _expressionType = ")";
+
   phraseToString(): string {
     return ")";
   }

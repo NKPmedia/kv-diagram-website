@@ -1,6 +1,8 @@
 import {AbstractLogicExpression} from "./logic-expression-abstract";
 export class LogicBracketOpen extends AbstractLogicExpression{
 
+  protected _expressionType = "(";
+
   phraseToString(): string {
     return "(";
   }

@@ -4,6 +4,7 @@ export class LogicOr extends AbstractLogicExpression {
 
   protected rightAssociative = false;
   protected _precedence = 1;
+  protected _expressionType = "+";
 
   phraseToString(): string {
     let result: string = "(";

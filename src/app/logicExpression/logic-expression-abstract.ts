@@ -1,4 +1,8 @@
-import {LogicExpression} from "./logic-expression";
+import {LogicRootExpression} from "./logic-root-expression";
+import {LogicNeg} from "./logic-neg";
+import {LogicVar} from "./logic-var";
+import {LogicAnd} from "./logic-and";
+import {LogicOr} from "./logic-or";
 
 export abstract class AbstractLogicExpression {
 
@@ -6,6 +10,7 @@ export abstract class AbstractLogicExpression {
   protected rightAssociative = false;
   protected _precedence = 0;
   protected _parsed = false;
+  protected _expressionType = "";
 
   get parsed(): boolean {
     return this._parsed;
@@ -13,6 +18,14 @@ export abstract class AbstractLogicExpression {
 
   set parsed(value: boolean) {
     this._parsed = value;
+  }
+
+  get expressionType(): string {
+    return this._expressionType;
+  }
+
+  set expressionType(value: string) {
+    this._expressionType = value;
   }
 
   get precedence(): number {

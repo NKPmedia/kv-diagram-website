@@ -7,12 +7,22 @@ import {LogicBracketClose} from './logic-bracket-close';
 import {LogicBracketOpen} from './logic-bracket-open';
 import {ShuntingYard} from './shunting-yard';
 import * as _ from 'lodash';
+import {LogicTreeUtils} from "./logic-tree-utils";
+import {StringMethods} from "../phrase/string-methods";
 
-export class LogicExpression extends AbstractLogicExpression {
+export class LogicRootExpression extends AbstractLogicExpression {
 
   phraseToString(): string {
     if (typeof this._logicChildExpressions[0] !== 'undefined') {
       return this._logicChildExpressions[0].phraseToString();
+    }
+    return '';
+  }
+
+  phraseToStringWithoutBreakets(): string {
+    if (typeof this._logicChildExpressions[0] !== 'undefined') {
+      let tmp = StringMethods.replaceAll(this._logicChildExpressions[0].phraseToString(),")","")
+      return StringMethods.replaceAll(tmp,"(","");
     }
     return '';
   }
@@ -135,5 +145,12 @@ export class LogicExpression extends AbstractLogicExpression {
       arrayR.push(array.pop());
     }
     return arrayR;
+  }
+
+  public toDNF() {
+    let logicTreeUtils = new LogicTreeUtils();
+
+    this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicNegs(this.logicChildExpressions[0]);
+    this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicAnd(this.logicChildExpressions[0]);
   }
 }

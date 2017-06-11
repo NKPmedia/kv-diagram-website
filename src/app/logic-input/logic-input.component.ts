@@ -2,9 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {BasicLogicPhraseParser} from "../phrase/basic-logic-phrase-parser";
 import {LogicPhrase} from "../phrase/logic-phrase";
 import {BasicLogicPhraseInfoComponent} from "../basic-logic-phrase-info/basic-logic-phrase-info.component";
-import {KVDiagram} from "../kv-diagram-model/kvdiagram";
 import {KVDiagramComponent} from "../kvdiagram/kvdiagram.component";
-import {LogicExpression} from "../logicExpression/logic-expression";
+import {LogicRootExpression} from "../logicExpression/logic-root-expression";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-logic-input',
@@ -21,6 +21,7 @@ export class LogicInputComponent implements OnInit {
   logicPhraseString = "";
   logicExtraVars = "";
   private logicPhrase: LogicPhrase;
+  private logicDNFPhrase: LogicPhrase;
 
   constructor(private basicLogicPhraseParser: BasicLogicPhraseParser) { }
 
@@ -28,17 +29,21 @@ export class LogicInputComponent implements OnInit {
   }
 
   parseLogicPhrase() {
+       let logicRootExpression = new LogicRootExpression();
+    logicRootExpression.parseLogicString(this.logicPhraseString);
+
+    let logicExpressionInDNF: LogicRootExpression = _.cloneDeep(logicRootExpression);
+    logicExpressionInDNF.toDNF();
+
+    this.basicLogicPhraseInfoCom.logicRootExpression = logicRootExpression;
+    this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicExpressionInDNF;
+
+    this.logicDNFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDNF.phraseToStringWithoutBreakets(), this.logicExtraVars);
     this.logicPhrase = this.basicLogicPhraseParser.parse(this.logicPhraseString, this.logicExtraVars);
 
     this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
 
-    this.kvDiagramCom.parse(this.logicPhrase);
-
-    let logicExpression = new LogicExpression();
-    logicExpression.parseLogicString(this.logicPhrase.phrase);
-
-    this.basicLogicPhraseInfoCom.logicExpression = logicExpression;
-
+    this.kvDiagramCom.parse(this.logicDNFPhrase);
   }
 
 

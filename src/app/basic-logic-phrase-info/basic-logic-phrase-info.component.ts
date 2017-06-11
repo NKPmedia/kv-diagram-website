@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LogicPhrase} from "../phrase/logic-phrase";
-import {LogicExpression} from "../logicExpression/logic-expression";
+import {LogicRootExpression} from "../logicExpression/logic-root-expression";
+import {StringMethods} from "../phrase/string-methods";
 
 @Component({
   selector: 'app-basic-logic-phrase-info',
@@ -10,7 +11,8 @@ import {LogicExpression} from "../logicExpression/logic-expression";
 export class BasicLogicPhraseInfoComponent implements OnInit {
 
   private _logicPhrase: LogicPhrase = new LogicPhrase(0, [], "");
-  private _logicExpression: LogicExpression = new LogicExpression();
+  private _logicRootExpression: LogicRootExpression = new LogicRootExpression();
+  private _logicRootExpressionInDNF: LogicRootExpression = new LogicRootExpression();
 
   constructor() { }
 
@@ -22,16 +24,24 @@ export class BasicLogicPhraseInfoComponent implements OnInit {
     this._logicPhrase = value
   }
 
+
   get logicPhrase(): LogicPhrase {
     return this._logicPhrase;
   }
 
-
-  get logicExpression(): LogicExpression {
-    return this._logicExpression;
+  get logicRootExpressionInDNF(): LogicRootExpression {
+    return this._logicRootExpressionInDNF;
   }
 
-  set logicExpression(value: LogicExpression) {
-    this._logicExpression = value;
+  set logicRootExpressionInDNF(value: LogicRootExpression) {
+    this._logicRootExpressionInDNF = value;
+  }
+
+  get logicRootExpression(): LogicRootExpression {
+    return this._logicRootExpression;
+  }
+
+  set logicRootExpression(value: LogicRootExpression) {
+    this._logicRootExpression = value;
   }
 }

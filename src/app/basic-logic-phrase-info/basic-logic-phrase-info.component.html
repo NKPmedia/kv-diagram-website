@@ -24,15 +24,15 @@
           </tr>
           <tr>
             <th scope="row">DNF</th>
-            <td>{{logicExpression.toString()}}</td>
+            <td>{{logicRootExpressionInDNF.phraseToStringWithoutBreakets()}}</td>
           </tr>
           <tr>
             <th scope="row">Parsed tree</th>
-            <td>{{logicExpression.phraseToString()}}</td>
+            <td>{{logicRootExpression.phraseToString()}}</td>
           </tr>
           <tr>
             <th scope="row">Shunted Yard</th>
-            <td>{{logicExpression.shuntedPhrase.toString()}}</td>
+            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>
           </tr>
         </tbody>
       </table>

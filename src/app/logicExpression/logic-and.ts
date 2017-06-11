@@ -4,6 +4,7 @@ export class LogicAnd extends AbstractLogicExpression {
 
   protected rightAssociative = false;
   protected _precedence = 2;
+  protected _expressionType = "*";
 
   public toString(): string {
     return "*";
