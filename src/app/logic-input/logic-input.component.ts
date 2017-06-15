@@ -29,7 +29,10 @@ export class LogicInputComponent implements OnInit {
   }
 
   parseLogicPhrase() {
-       let logicRootExpression = new LogicRootExpression();
+
+    this.kvDiagramCom.logicInputCom = this;
+
+    let logicRootExpression = new LogicRootExpression();
     logicRootExpression.parseLogicString(this.logicPhraseString);
 
     let logicExpressionInDNF: LogicRootExpression = _.cloneDeep(logicRootExpression);
@@ -47,5 +50,9 @@ export class LogicInputComponent implements OnInit {
   }
 
 
-
+  updateDNF(newDnf: string) {
+    let logicRootExpression = new LogicRootExpression();
+    logicRootExpression.parseLogicString(newDnf);
+    this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
+  }
 }

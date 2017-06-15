@@ -4,16 +4,30 @@ import {ElementRef} from "@angular/core";
 import {LogicPhrase} from "../phrase/logic-phrase";
 import {StringMethods} from "../phrase/string-methods";
 import {Coordinate} from "./coordinate";
+import {KVDiagramComponent} from "../kvdiagram/kvdiagram.component";
 
 export class KVDiagram {
 
   private _segments: KVDiagramSegment[] = Array();
   private _kvMatrix: KvDiagramEntry[][];
+  private lastMouseOnEntry: KvDiagramEntry;
+  private _kvDiagramComponent: KVDiagramComponent;
+
+  get kvDiagramComponent(): KVDiagramComponent {
+    return this._kvDiagramComponent;
+  }
+
+  set kvDiagramComponent(value: KVDiagramComponent) {
+    this._kvDiagramComponent = value;
+  }
 
   addSegment(segment: KVDiagramSegment) {
     this._segments.push(segment)
   }
 
+  get segments(): KVDiagramSegment[] {
+    return this._segments;
+  }
 
   get kvMatrix(): KvDiagramEntry[][] {
     return this._kvMatrix;
@@ -21,10 +35,11 @@ export class KVDiagram {
 
   set kvMatrix(value: KvDiagramEntry[][]) {
     this._kvMatrix = value;
-  }
-
-  get segments(): KVDiagramSegment[] {
-    return this._segments;
+    for(let xRow of this.kvMatrix) {
+      for(let entry of xRow) {
+        entry.kvDiagram = this;
+      }
+    }
   }
 
   fill(logicPhrase: LogicPhrase) {
@@ -53,7 +68,8 @@ export class KVDiagram {
 
     for(let xRow of this.kvMatrix) {
       for(let entry of xRow) {
-        entry.draw(ctx);
+        entry.ctx = ctx;
+        entry.draw();
       }
     }
 
@@ -84,5 +100,49 @@ export class KVDiagram {
         entry.genCombinationTags(this._segments);
       }
     }
+  }
+
+  mouseOver(x: number, y: number) {
+    if(typeof this.kvMatrix[0][0] !== "undefined" ) {
+      let matrixX = Math.floor(x / this.kvMatrix[0][0].width);
+      let matrixY = Math.floor(y / this.kvMatrix[0][0].width);
+      if(matrixX < this.kvMatrix.length && matrixY < this.kvMatrix[0].length) {
+        if(typeof this.lastMouseOnEntry === "undefined") this.lastMouseOnEntry = this.kvMatrix[matrixX][matrixY];
+
+        if(this.lastMouseOnEntry != this.kvMatrix[matrixX][matrixY]) {
+          this.lastMouseOnEntry.mouseOn = false;
+          this.lastMouseOnEntry = this.kvMatrix[matrixX][matrixY];
+        }
+        this.lastMouseOnEntry.mouseOn = true;
+      }
+    }
+  }
+
+  clicked(x: number, y: number) {
+    if(typeof this.kvMatrix[0][0] !== "undefined" ) {
+      let matrixX = Math.floor(x / this.kvMatrix[0][0].width);
+      let matrixY = Math.floor(y / this.kvMatrix[0][0].width);
+      if(matrixX < this.kvMatrix.length && matrixY < this.kvMatrix[0].length) {
+        this.kvMatrix[matrixX][matrixY].clicked();
+      }
+    }
+  }
+
+  updatedMatrixValues() {
+    let newDnf = this.generateDNFOutOfMatrix();
+
+    this.kvDiagramComponent.updateDNF(newDnf);
+  }
+
+  private generateDNFOutOfMatrix() {
+    let dnf: string = "";
+    for(let xRow of this.kvMatrix) {
+      for(let entry of xRow) {
+        if(entry.value == 1) {
+          dnf += " + " + entry.getCombinationsAsString();
+        }
+      }
+    }
+    return dnf.substr(3);
   }
 }

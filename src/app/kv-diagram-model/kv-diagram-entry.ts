@@ -1,18 +1,37 @@
 import {ElementRef} from '@angular/core';
 import {KVDiagramSegment} from "./kvdiagram-segment";
+import {KVDiagram} from "./kvdiagram";
 
 export class KvDiagramEntry {
-
   private _xPos:number;
   private _yPos:number;
   private _value:number;
-  private width: number = 50;
+  public width: number = 50;
   private varCombinationTag: string[] = Array();
+  private _mouseOn: boolean;
+  private _ctx: CanvasRenderingContext2D;
+  private _kvDiagram: KVDiagram;
 
 
   constructor(xPos: number, yPos: number) {
     this._xPos = xPos;
     this._yPos = yPos;
+  }
+
+  get kvDiagram(): KVDiagram {
+    return this._kvDiagram;
+  }
+
+  set kvDiagram(value: KVDiagram) {
+    this._kvDiagram = value;
+  }
+
+  get ctx(): CanvasRenderingContext2D {
+    return this._ctx;
+  }
+
+  set ctx(value: CanvasRenderingContext2D) {
+    this._ctx = value;
   }
 
   get xPos(): number {
@@ -39,14 +58,27 @@ export class KvDiagramEntry {
     this._value = value;
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.beginPath();
-    ctx.rect(this._xPos * this.width, this._yPos * this.width, this.width, this.width);
-    ctx.stroke();
+  get mouseOn(): boolean {
+    return this._mouseOn;
+  }
 
+  set mouseOn(value: boolean) {
+    this._mouseOn = value;
+    this.draw();
+  }
+
+  draw() {
+    this.ctx.beginPath();
+    this.ctx.rect(this._xPos * this.width, this._yPos * this.width, this.width, this.width);
+    if(this.mouseOn) this.ctx.fillStyle = "#D7D7D7";
+    else this.ctx.fillStyle = "#FFFFFF";
+    this.ctx.fill();
+    this.ctx.stroke();
+
+    this.ctx.fillStyle = "black";
     if(this.value == 1) {
-      ctx.font = '25px sans-serif';
-      ctx.fillText("1", (this._xPos) * this.width+20, (this._yPos) * this.width+40, this.width);
+      this.ctx.font = '25px sans-serif';
+      this.ctx.fillText("1", (this._xPos) * this.width+20, (this._yPos) * this.width+40, this.width);
     }
   }
 
@@ -62,5 +94,20 @@ export class KvDiagramEntry {
       if(!this.varCombinationTag.includes(name)) return false
     }
     return true;
+  }
+
+  getCombinationsAsString(): string {
+    let combination: string = "";
+    for(let name of this.varCombinationTag) {
+      combination += "*"+name;
+    }
+    return combination.substr(1);
+  }
+
+  clicked() {
+    if(this.value == 1) this.value = 0;
+    else this.value = 1;
+    this.draw();
+    this.kvDiagram.updatedMatrixValues();
   }
 }

@@ -93,14 +93,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var KVDiagramComponent = (function () {
     function KVDiagramComponent() {
+        this.mouseInCanvas = false;
     }
     KVDiagramComponent.prototype.ngOnInit = function () {
     };
+    Object.defineProperty(KVDiagramComponent.prototype, "logicInputCom", {
+        get: function () {
+            return this._logicInputCom;
+        },
+        set: function (value) {
+            this._logicInputCom = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     KVDiagramComponent.prototype.parse = function (logicPhrase) {
         var generator = new __WEBPACK_IMPORTED_MODULE_1__kv_diagram_model_kv_diagram_generator__["a" /* KvDiagramGenerator */](logicPhrase);
         this.kvDiagram = generator.generateKVDiagram();
+        this.kvDiagram.kvDiagramComponent = this;
         this.kvDiagram.fill(logicPhrase);
         this.kvDiagram.draw(this.canvasRef);
+    };
+    KVDiagramComponent.prototype.canvasMouseEnter = function () {
+        this.mouseInCanvas = true;
+    };
+    KVDiagramComponent.prototype.canvasMouseLeave = function () {
+        this.mouseInCanvas = false;
+    };
+    KVDiagramComponent.prototype.canvasMouseMove = function (event) {
+        if (this.mouseInCanvas) {
+            var rect = this.canvasRef.nativeElement.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+            if (typeof this.kvDiagram !== "undefined") {
+                this.kvDiagram.mouseOver(x, y);
+            }
+        }
+    };
+    KVDiagramComponent.prototype.cklickedCanvas = function (event) {
+        if (this.mouseInCanvas) {
+            var rect = this.canvasRef.nativeElement.getBoundingClientRect();
+            var x = event.clientX - rect.left;
+            var y = event.clientY - rect.top;
+            if (typeof this.kvDiagram !== "undefined") {
+                this.kvDiagram.clicked(x, y);
+            }
+        }
+    };
+    KVDiagramComponent.prototype.updateDNF = function (newDnf) {
+        this._logicInputCom.updateDNF(newDnf);
     };
     return KVDiagramComponent;
 }());
@@ -112,7 +153,7 @@ KVDiagramComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
         selector: 'app-kvdiagramm',
         template: __webpack_require__(236),
-        styles: [__webpack_require__(230)]
+        styles: [__webpack_require__(230)],
     }),
     __metadata("design:paramtypes", [])
 ], KVDiagramComponent);
@@ -446,6 +487,7 @@ var LogicRootExpression = (function (_super) {
         return false;
     };
     LogicRootExpression.prototype.parseLogicString = function (logicPhrase) {
+        logicPhrase = __WEBPACK_IMPORTED_MODULE_10__phrase_string_methods__["a" /* StringMethods */].replaceAll(logicPhrase, " ", "");
         var logicObjectPhrase = this.logicStringToObjectAarray(logicPhrase);
         var shuntigYard = new __WEBPACK_IMPORTED_MODULE_7__shunting_yard__["a" /* ShuntingYard */]();
         this._shuntedPhrase = shuntigYard.startAlgo(logicObjectPhrase);
@@ -848,6 +890,26 @@ var KvDiagramEntry = (function () {
         this._xPos = xPos;
         this._yPos = yPos;
     }
+    Object.defineProperty(KvDiagramEntry.prototype, "kvDiagram", {
+        get: function () {
+            return this._kvDiagram;
+        },
+        set: function (value) {
+            this._kvDiagram = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(KvDiagramEntry.prototype, "ctx", {
+        get: function () {
+            return this._ctx;
+        },
+        set: function (value) {
+            this._ctx = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(KvDiagramEntry.prototype, "xPos", {
         get: function () {
             return this._xPos;
@@ -878,13 +940,30 @@ var KvDiagramEntry = (function () {
         enumerable: true,
         configurable: true
     });
-    KvDiagramEntry.prototype.draw = function (ctx) {
-        ctx.beginPath();
-        ctx.rect(this._xPos * this.width, this._yPos * this.width, this.width, this.width);
-        ctx.stroke();
+    Object.defineProperty(KvDiagramEntry.prototype, "mouseOn", {
+        get: function () {
+            return this._mouseOn;
+        },
+        set: function (value) {
+            this._mouseOn = value;
+            this.draw();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    KvDiagramEntry.prototype.draw = function () {
+        this.ctx.beginPath();
+        this.ctx.rect(this._xPos * this.width, this._yPos * this.width, this.width, this.width);
+        if (this.mouseOn)
+            this.ctx.fillStyle = "#D7D7D7";
+        else
+            this.ctx.fillStyle = "#FFFFFF";
+        this.ctx.fill();
+        this.ctx.stroke();
+        this.ctx.fillStyle = "black";
         if (this.value == 1) {
-            ctx.font = '25px sans-serif';
-            ctx.fillText("1", (this._xPos) * this.width + 20, (this._yPos) * this.width + 40, this.width);
+            this.ctx.font = '25px sans-serif';
+            this.ctx.fillText("1", (this._xPos) * this.width + 20, (this._yPos) * this.width + 40, this.width);
         }
     };
     KvDiagramEntry.prototype.genCombinationTags = function (segments) {
@@ -902,6 +981,22 @@ var KvDiagramEntry = (function () {
                 return false;
         }
         return true;
+    };
+    KvDiagramEntry.prototype.getCombinationsAsString = function () {
+        var combination = "";
+        for (var _i = 0, _a = this.varCombinationTag; _i < _a.length; _i++) {
+            var name = _a[_i];
+            combination += "*" + name;
+        }
+        return combination.substr(1);
+    };
+    KvDiagramEntry.prototype.clicked = function () {
+        if (this.value == 1)
+            this.value = 0;
+        else
+            this.value = 1;
+        this.draw();
+        this.kvDiagram.updatedMatrixValues();
     };
     return KvDiagramEntry;
 }());
@@ -1155,22 +1250,39 @@ var KVDiagram = (function () {
     function KVDiagram() {
         this._segments = Array();
     }
+    Object.defineProperty(KVDiagram.prototype, "kvDiagramComponent", {
+        get: function () {
+            return this._kvDiagramComponent;
+        },
+        set: function (value) {
+            this._kvDiagramComponent = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     KVDiagram.prototype.addSegment = function (segment) {
         this._segments.push(segment);
     };
+    Object.defineProperty(KVDiagram.prototype, "segments", {
+        get: function () {
+            return this._segments;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(KVDiagram.prototype, "kvMatrix", {
         get: function () {
             return this._kvMatrix;
         },
         set: function (value) {
             this._kvMatrix = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(KVDiagram.prototype, "segments", {
-        get: function () {
-            return this._segments;
+            for (var _i = 0, _a = this.kvMatrix; _i < _a.length; _i++) {
+                var xRow = _a[_i];
+                for (var _b = 0, xRow_1 = xRow; _b < xRow_1.length; _b++) {
+                    var entry = xRow_1[_b];
+                    entry.kvDiagram = this;
+                }
+            }
         },
         enumerable: true,
         configurable: true
@@ -1196,9 +1308,10 @@ var KVDiagram = (function () {
         ctx.clearRect(0, 0, 5000, 5000);
         for (var _i = 0, _a = this.kvMatrix; _i < _a.length; _i++) {
             var xRow = _a[_i];
-            for (var _b = 0, xRow_1 = xRow; _b < xRow_1.length; _b++) {
-                var entry = xRow_1[_b];
-                entry.draw(ctx);
+            for (var _b = 0, xRow_2 = xRow; _b < xRow_2.length; _b++) {
+                var entry = xRow_2[_b];
+                entry.ctx = ctx;
+                entry.draw();
             }
         }
         for (var _c = 0, _d = this.segments; _c < _d.length; _c++) {
@@ -1212,8 +1325,8 @@ var KVDiagram = (function () {
         var segmentsRequired = new Array();
         for (var _i = 0, _a = this.kvMatrix; _i < _a.length; _i++) {
             var xRow = _a[_i];
-            for (var _b = 0, xRow_2 = xRow; _b < xRow_2.length; _b++) {
-                var entry = xRow_2[_b];
+            for (var _b = 0, xRow_3 = xRow; _b < xRow_3.length; _b++) {
+                var entry = xRow_3[_b];
                 if (entry.combinationPartOfTag(vars)) {
                     coordinates.push(new __WEBPACK_IMPORTED_MODULE_1__coordinate__["a" /* Coordinate */](entry.xPos, entry.yPos));
                 }
@@ -1224,11 +1337,52 @@ var KVDiagram = (function () {
     KVDiagram.prototype.genCombinationTagsForEntries = function () {
         for (var _i = 0, _a = this.kvMatrix; _i < _a.length; _i++) {
             var xRow = _a[_i];
-            for (var _b = 0, xRow_3 = xRow; _b < xRow_3.length; _b++) {
-                var entry = xRow_3[_b];
+            for (var _b = 0, xRow_4 = xRow; _b < xRow_4.length; _b++) {
+                var entry = xRow_4[_b];
                 entry.genCombinationTags(this._segments);
             }
         }
+    };
+    KVDiagram.prototype.mouseOver = function (x, y) {
+        if (typeof this.kvMatrix[0][0] !== "undefined") {
+            var matrixX = Math.floor(x / this.kvMatrix[0][0].width);
+            var matrixY = Math.floor(y / this.kvMatrix[0][0].width);
+            if (matrixX < this.kvMatrix.length && matrixY < this.kvMatrix[0].length) {
+                if (typeof this.lastMouseOnEntry === "undefined")
+                    this.lastMouseOnEntry = this.kvMatrix[matrixX][matrixY];
+                if (this.lastMouseOnEntry != this.kvMatrix[matrixX][matrixY]) {
+                    this.lastMouseOnEntry.mouseOn = false;
+                    this.lastMouseOnEntry = this.kvMatrix[matrixX][matrixY];
+                }
+                this.lastMouseOnEntry.mouseOn = true;
+            }
+        }
+    };
+    KVDiagram.prototype.clicked = function (x, y) {
+        if (typeof this.kvMatrix[0][0] !== "undefined") {
+            var matrixX = Math.floor(x / this.kvMatrix[0][0].width);
+            var matrixY = Math.floor(y / this.kvMatrix[0][0].width);
+            if (matrixX < this.kvMatrix.length && matrixY < this.kvMatrix[0].length) {
+                this.kvMatrix[matrixX][matrixY].clicked();
+            }
+        }
+    };
+    KVDiagram.prototype.updatedMatrixValues = function () {
+        var newDnf = this.generateDNFOutOfMatrix();
+        this.kvDiagramComponent.updateDNF(newDnf);
+    };
+    KVDiagram.prototype.generateDNFOutOfMatrix = function () {
+        var dnf = "";
+        for (var _i = 0, _a = this.kvMatrix; _i < _a.length; _i++) {
+            var xRow = _a[_i];
+            for (var _b = 0, xRow_5 = xRow; _b < xRow_5.length; _b++) {
+                var entry = xRow_5[_b];
+                if (entry.value == 1) {
+                    dnf += " + " + entry.getCombinationsAsString();
+                }
+            }
+        }
+        return dnf.substr(3);
     };
     return KVDiagram;
 }());
@@ -1273,6 +1427,7 @@ var LogicInputComponent = (function () {
     LogicInputComponent.prototype.ngOnInit = function () {
     };
     LogicInputComponent.prototype.parseLogicPhrase = function () {
+        this.kvDiagramCom.logicInputCom = this;
         var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         logicRootExpression.parseLogicString(this.logicPhraseString);
         var logicExpressionInDNF = __WEBPACK_IMPORTED_MODULE_5_lodash__["cloneDeep"](logicRootExpression);
@@ -1283,6 +1438,11 @@ var LogicInputComponent = (function () {
         this.logicPhrase = this.basicLogicPhraseParser.parse(this.logicPhraseString, this.logicExtraVars);
         this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
         this.kvDiagramCom.parse(this.logicDNFPhrase);
+    };
+    LogicInputComponent.prototype.updateDNF = function (newDnf) {
+        var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
+        logicRootExpression.parseLogicString(newDnf);
+        this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
     };
     return LogicInputComponent;
 }());
@@ -1721,7 +1881,7 @@ module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n    
 /***/ 236:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">KV Diagramm</h4>\n    <canvas #kvDiagramCanvas width=\"1000\" height=\"1000\">\n    </canvas>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">KV Diagramm</h4>\n    <canvas (click)=\"cklickedCanvas($event)\" (mousemove)=\"canvasMouseMove($event)\"  (mouseenter)=\"canvasMouseEnter()\" (mouseleave)=\"canvasMouseLeave()\"   #kvDiagramCanvas width=\"1000\" height=\"1000\">\n    </canvas>\n  </div>\n</div>\n\n"
 
 /***/ }),
 

@@ -51,6 +51,8 @@ export class LogicRootExpression extends AbstractLogicExpression {
 
   public parseLogicString(logicPhrase: string) {
 
+    logicPhrase = StringMethods.replaceAll(logicPhrase," ","");
+
     const logicObjectPhrase = this.logicStringToObjectAarray(logicPhrase);
 
     const shuntigYard = new ShuntingYard();
