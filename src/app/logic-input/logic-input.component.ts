@@ -32,8 +32,10 @@ export class LogicInputComponent implements OnInit {
 
     this.kvDiagramCom.logicInputCom = this;
 
+    let separatedVariableString = separateVariables(this.logicPhraseString);
+
     let logicRootExpression = new LogicRootExpression();
-    logicRootExpression.parseLogicString(this.logicPhraseString);
+    logicRootExpression.parseLogicString(separatedVariableString);
 
     let logicExpressionInDNF: LogicRootExpression = _.cloneDeep(logicRootExpression);
     logicExpressionInDNF.toDNF();
@@ -42,7 +44,7 @@ export class LogicInputComponent implements OnInit {
     this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicExpressionInDNF;
 
     this.logicDNFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDNF.phraseToStringWithoutBreakets(), this.logicExtraVars);
-    this.logicPhrase = this.basicLogicPhraseParser.parse(this.logicPhraseString, this.logicExtraVars);
+    this.logicPhrase = this.basicLogicPhraseParser.parse(separatedVariableString, this.logicExtraVars);
 
     this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
 
@@ -55,4 +57,30 @@ export class LogicInputComponent implements OnInit {
     logicRootExpression.parseLogicString(newDnf);
     this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
   }
+
+  separateVariables(oldString: string) {
+    var array = oldString.split(/((?=[a-zA-Z])[a-zA-Z]*)/);
+    var i = 0;
+    var j = 0;
+    var result = "";
+    for (var i = 1; i < array.length-1; i++) {
+
+      if (array[i] != "") {
+        if (array[i].length > 1) {
+
+          for (var j = 0; i < array[j].length; ++j) {
+            result += array[i].charAt(j) + "*";
+          }
+
+          result += array[i].charAt(array[i].length-1);
+
+        }
+        else {
+          result += array[i];
+        }
+      }
+
+    }
+    return result;
+  } 
 }
