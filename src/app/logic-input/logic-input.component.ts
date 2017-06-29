@@ -68,7 +68,7 @@ export class LogicInputComponent implements OnInit {
       if (array[i] != "") {
         if (array[i].length > 1) {
 
-          for (var j = 0; i < array[j].length; ++j) {
+          for (var j = 0; j < array[i].length-1; ++j) {
             result += array[i].charAt(j) + "*";
           }
 
