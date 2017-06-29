@@ -1,0 +1,96 @@
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">QMC</h4>
+
+    <div class="row">
+      <h5 class="col-md-12">Vereinfachungstabelle</h5>
+      <ng-container *ngFor= "let table of qmc.simplificationTable; let myIndex = index">
+        <div class="col-md-4">
+          <table class="table table-bordered">
+            <thead>
+              <tr scope="row">
+                <th>Group</th>
+                <th>DCEq.</th>
+                <th>Prim.</th>
+                <th>Used</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <ng-container *ngFor= "let group of table let groupIndex = index">
+                <ng-container *ngFor= "let primeImplicant of group">
+                  <ng-container></ng-container>
+                  <tr class="{{getTableBackground(groupIndex)}}" scope="row">
+                    <th>
+                      {{groupIndex}}
+                    </th>
+                    <td>
+                      {{primeImplicant.getDcEquivalentsString()}}
+                    </td>
+                    <td>
+                      {{primeImplicant.toString()}}
+                    </td>
+                    <td>
+                      <ng-container *ngIf="primeImplicant._usedForCombination">
+                        &#10004;
+                      </ng-container>
+                      <ng-container *ngIf="!primeImplicant._usedForCombination">
+                        &#10008;
+                      </ng-container>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+            </tbody>
+
+          </table>
+        </div>
+
+      </ng-container>
+    </div>
+
+    <div class="row">
+      <h5 class="col-md-12">Auswahl der wesentlichen Primimplikanten</h5>
+      <div class="col-md-4">
+        <table class="table table-bordered">
+          <thead>
+          <tr scope="row">
+            <th>Prim/DCEq</th>
+            <ng-container *ngFor="let dcEq of qmc.existingDcEquivalebnts">
+              <th>{{dcEq}}</th>
+            </ng-container>
+          </tr>
+          </thead>
+
+          <tbody>
+            <ng-container *ngFor="let prim of qmc.restMatrix; let indexI = index">
+                <tr scope="row">
+                  <td class="{{getEssentialPrimBackground(indexI)}}">
+                    {{qmc.notCombinedPrimimplikanten[indexI]}}
+                  </td>
+                  <ng-container *ngFor="let dcEq of prim; let dcEqNumber = index">
+                    <ng-container *ngIf="dcEq">
+                      <td class="{{getEssentialPrimDcBackground(dcEqNumber)}}">
+                        {{dcEq}}
+                      </td>
+                    </ng-container>
+
+                  </ng-container>
+                </tr>
+            </ng-container>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <h5 class="col-md-12">Minimale Form</h5>
+      <div class="col-md-4">
+        <ng-container *ngFor="let prim of qmc.bestCoverage; let indexI = index">
+          {{prim.toString()}} +
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
