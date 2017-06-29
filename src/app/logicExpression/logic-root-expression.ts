@@ -149,7 +149,7 @@ export class LogicRootExpression extends AbstractLogicExpression {
     return arrayR;
   }
 
-  public toDNF() {
+  public toDF() {
     let logicTreeUtils = new LogicTreeUtils();
 
     this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicNegs(this.logicChildExpressions[0]);

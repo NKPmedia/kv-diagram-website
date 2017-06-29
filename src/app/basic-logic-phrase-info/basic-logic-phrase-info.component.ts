@@ -12,7 +12,7 @@ export class BasicLogicPhraseInfoComponent implements OnInit {
 
   private _logicPhrase: LogicPhrase = new LogicPhrase(0, [], "");
   private _logicRootExpression: LogicRootExpression = new LogicRootExpression();
-  private _logicRootExpressionInDNF: LogicRootExpression = new LogicRootExpression();
+  private _logicRootExpressionInDF: LogicRootExpression = new LogicRootExpression();
 
   constructor() { }
 
@@ -29,12 +29,12 @@ export class BasicLogicPhraseInfoComponent implements OnInit {
     return this._logicPhrase;
   }
 
-  get logicRootExpressionInDNF(): LogicRootExpression {
-    return this._logicRootExpressionInDNF;
+  get logicRootExpressionInDF(): LogicRootExpression {
+    return this._logicRootExpressionInDF;
   }
 
-  set logicRootExpressionInDNF(value: LogicRootExpression) {
-    this._logicRootExpressionInDNF = value;
+  set logicRootExpressionInDF(value: LogicRootExpression) {
+    this._logicRootExpressionInDF = value;
   }
 
   get logicRootExpression(): LogicRootExpression {

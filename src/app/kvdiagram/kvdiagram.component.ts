@@ -12,7 +12,7 @@ import {LogicInputComponent} from "../logic-input/logic-input.component";
 export class KVDiagramComponent implements OnInit {
 
   @ViewChild('kvDiagramCanvas') canvasRef: ElementRef;
-  private kvDiagram: KVDiagram;
+  private _kvDiagram: KVDiagram;
   private mouseInCanvas: boolean = false;
   private _logicInputCom: LogicInputComponent;
 
@@ -21,6 +21,10 @@ export class KVDiagramComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  get kvDiagram(): KVDiagram {
+    return this._kvDiagram;
+  }
 
   get logicInputCom(): LogicInputComponent {
     return this._logicInputCom;
@@ -33,11 +37,11 @@ export class KVDiagramComponent implements OnInit {
   parse(logicPhrase: LogicPhrase) {
 
     let generator = new KvDiagramGenerator(logicPhrase);
-    this.kvDiagram = generator.generateKVDiagram();
-    this.kvDiagram.kvDiagramComponent = this;
-    this.kvDiagram.fill(logicPhrase);
+    this._kvDiagram = generator.generateKVDiagram();
+    this._kvDiagram.kvDiagramComponent = this;
+    this._kvDiagram.fill(logicPhrase);
 
-    this.kvDiagram.draw(this.canvasRef);
+    this._kvDiagram.draw(this.canvasRef);
   }
 
   canvasMouseEnter() {
@@ -53,8 +57,8 @@ export class KVDiagramComponent implements OnInit {
       let rect = this.canvasRef.nativeElement.getBoundingClientRect();
       let x = event.clientX - rect.left;
       let y = event.clientY - rect.top;
-      if(typeof this.kvDiagram !== "undefined") {
-        this.kvDiagram.mouseOver(x,y);
+      if(typeof this._kvDiagram !== "undefined") {
+        this._kvDiagram.mouseOver(x,y);
       }
     }
   }
@@ -64,8 +68,8 @@ export class KVDiagramComponent implements OnInit {
       let rect = this.canvasRef.nativeElement.getBoundingClientRect();
       let x = event.clientX - rect.left;
       let y = event.clientY - rect.top;
-      if(typeof this.kvDiagram !== "undefined") {
-        this.kvDiagram.clicked(x,y);
+      if(typeof this._kvDiagram !== "undefined") {
+        this._kvDiagram.clicked(x,y);
       }
     }
   }

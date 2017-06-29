@@ -134,7 +134,7 @@ export class KVDiagram {
     this.kvDiagramComponent.updateDNF(newDnf);
   }
 
-  private generateDNFOutOfMatrix() {
+  public generateDNFOutOfMatrix() {
     let dnf: string = "";
     for(let xRow of this.kvMatrix) {
       for(let entry of xRow) {
