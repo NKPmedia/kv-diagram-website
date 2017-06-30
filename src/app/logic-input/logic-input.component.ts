@@ -36,8 +36,10 @@ export class LogicInputComponent implements OnInit {
 
     this.kvDiagramCom.logicInputCom = this;
 
+    let separatedVariableString = separateVariables(this.logicPhraseString);
+
     let logicRootExpression = new LogicRootExpression();
-    logicRootExpression.parseLogicString(this.logicPhraseString);
+    logicRootExpression.parseLogicString(separatedVariableString);
 
     let logicExpressionInDF: LogicRootExpression = _.cloneDeep(logicRootExpression);
     logicExpressionInDF.toDF();
@@ -45,8 +47,9 @@ export class LogicInputComponent implements OnInit {
     this.basicLogicPhraseInfoCom.logicRootExpression = logicRootExpression;
     this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicExpressionInDF;
 
+
     this.logicDFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDF.phraseToStringWithoutBreakets(), this.logicExtraVars);
-    this.logicPhrase = this.basicLogicPhraseParser.parse(this.logicPhraseString, this.logicExtraVars);
+    this.logicPhrase = this.basicLogicPhraseParser.parse(separatedVariableString, this.logicExtraVars);
 
     this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
 
@@ -71,4 +74,19 @@ export class LogicInputComponent implements OnInit {
 
     this.qmcVisualizerCom.newQMC(qmc);
   }
+
+  separateVariables(oldString: string) {
+    var result = "";
+    var last = "";
+    for (var i = 0; i < oldString.length; i++) {
+      var curr = oldString.charAt(i);
+      if (curr.match(/([a-zA-Z]+)/) != null && last.match(/([a-zA-Z]+)/)) {
+        result += "*" + curr;
+      } else {
+        result += curr;
+      }
+      last = curr;
+    }
+    return result;
+  } 
 }
