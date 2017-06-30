@@ -5,6 +5,8 @@ import {BasicLogicPhraseInfoComponent} from "../basic-logic-phrase-info/basic-lo
 import {KVDiagramComponent} from "../kvdiagram/kvdiagram.component";
 import {LogicRootExpression} from "../logicExpression/logic-root-expression";
 import * as _ from 'lodash';
+import {QMC} from "../qmc/qmc";
+import {QMCVisualizerComponent} from "../qmcvisualizer/qmcvisualizer.component";
 
 @Component({
   selector: 'app-logic-input',
@@ -17,11 +19,13 @@ export class LogicInputComponent implements OnInit {
   basicLogicPhraseInfoCom: BasicLogicPhraseInfoComponent;
   @Input()
   kvDiagramCom: KVDiagramComponent;
+  @Input()
+  qmcVisualizerCom: QMCVisualizerComponent;
 
-  logicPhraseString = "";
-  logicExtraVars = "";
+  logicPhraseString = "a+b";
+  logicExtraVars = "c d";
   private logicPhrase: LogicPhrase;
-  private logicDNFPhrase: LogicPhrase;
+  private logicDFPhrase: LogicPhrase;
 
   constructor(private basicLogicPhraseParser: BasicLogicPhraseParser) { }
 
@@ -37,25 +41,38 @@ export class LogicInputComponent implements OnInit {
     let logicRootExpression = new LogicRootExpression();
     logicRootExpression.parseLogicString(separatedVariableString);
 
-    let logicExpressionInDNF: LogicRootExpression = _.cloneDeep(logicRootExpression);
-    logicExpressionInDNF.toDNF();
+    let logicExpressionInDF: LogicRootExpression = _.cloneDeep(logicRootExpression);
+    logicExpressionInDF.toDF();
 
     this.basicLogicPhraseInfoCom.logicRootExpression = logicRootExpression;
-    this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicExpressionInDNF;
+    this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicExpressionInDF;
 
-    this.logicDNFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDNF.phraseToStringWithoutBreakets(), this.logicExtraVars);
+
+    this.logicDFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDF.phraseToStringWithoutBreakets(), this.logicExtraVars);
     this.logicPhrase = this.basicLogicPhraseParser.parse(separatedVariableString, this.logicExtraVars);
 
     this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
 
-    this.kvDiagramCom.parse(this.logicDNFPhrase);
+    this.kvDiagramCom.parse(this.logicDFPhrase);
+
+    this.updateDNF(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix())
+
+    let qmc = new QMC();
+    qmc.simplify(this.basicLogicPhraseParser.parse(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix(), this.logicExtraVars));
+
+    this.qmcVisualizerCom.newQMC(qmc);
   }
 
 
   updateDNF(newDnf: string) {
     let logicRootExpression = new LogicRootExpression();
     logicRootExpression.parseLogicString(newDnf);
-    this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
+    this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicRootExpression;
+
+    let qmc = new QMC();
+    qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
+
+    this.qmcVisualizerCom.newQMC(qmc);
   }
 
   separateVariables(oldString: string) {

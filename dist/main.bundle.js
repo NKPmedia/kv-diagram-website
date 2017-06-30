@@ -1,12 +1,12 @@
 webpackJsonp([1,4],{
 
-/***/ 121:
+/***/ 122:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__ = __webpack_require__(129);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicLogicPhraseInfoComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -24,7 +24,7 @@ var BasicLogicPhraseInfoComponent = (function () {
     function BasicLogicPhraseInfoComponent() {
         this._logicPhrase = new __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__["a" /* LogicPhrase */](0, [], "");
         this._logicRootExpression = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
-        this._logicRootExpressionInDNF = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
+        this._logicRootExpressionInDF = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
     }
     BasicLogicPhraseInfoComponent.prototype.ngOnInit = function () {
     };
@@ -38,12 +38,12 @@ var BasicLogicPhraseInfoComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(BasicLogicPhraseInfoComponent.prototype, "logicRootExpressionInDNF", {
+    Object.defineProperty(BasicLogicPhraseInfoComponent.prototype, "logicRootExpressionInDF", {
         get: function () {
-            return this._logicRootExpressionInDNF;
+            return this._logicRootExpressionInDF;
         },
         set: function (value) {
-            this._logicRootExpressionInDNF = value;
+            this._logicRootExpressionInDF = value;
         },
         enumerable: true,
         configurable: true
@@ -63,8 +63,8 @@ var BasicLogicPhraseInfoComponent = (function () {
 BasicLogicPhraseInfoComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
         selector: 'app-basic-logic-phrase-info',
-        template: __webpack_require__(235),
-        styles: [__webpack_require__(229)],
+        template: __webpack_require__(239),
+        styles: [__webpack_require__(232)],
     }),
     __metadata("design:paramtypes", [])
 ], BasicLogicPhraseInfoComponent);
@@ -73,12 +73,12 @@ BasicLogicPhraseInfoComponent = __decorate([
 
 /***/ }),
 
-/***/ 122:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kv_diagram_model_kv_diagram_generator__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kv_diagram_model_kv_diagram_generator__ = __webpack_require__(168);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KVDiagramComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -97,6 +97,13 @@ var KVDiagramComponent = (function () {
     }
     KVDiagramComponent.prototype.ngOnInit = function () {
     };
+    Object.defineProperty(KVDiagramComponent.prototype, "kvDiagram", {
+        get: function () {
+            return this._kvDiagram;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(KVDiagramComponent.prototype, "logicInputCom", {
         get: function () {
             return this._logicInputCom;
@@ -109,10 +116,10 @@ var KVDiagramComponent = (function () {
     });
     KVDiagramComponent.prototype.parse = function (logicPhrase) {
         var generator = new __WEBPACK_IMPORTED_MODULE_1__kv_diagram_model_kv_diagram_generator__["a" /* KvDiagramGenerator */](logicPhrase);
-        this.kvDiagram = generator.generateKVDiagram();
-        this.kvDiagram.kvDiagramComponent = this;
-        this.kvDiagram.fill(logicPhrase);
-        this.kvDiagram.draw(this.canvasRef);
+        this._kvDiagram = generator.generateKVDiagram();
+        this._kvDiagram.kvDiagramComponent = this;
+        this._kvDiagram.fill(logicPhrase);
+        this._kvDiagram.draw(this.canvasRef);
     };
     KVDiagramComponent.prototype.canvasMouseEnter = function () {
         this.mouseInCanvas = true;
@@ -125,8 +132,8 @@ var KVDiagramComponent = (function () {
             var rect = this.canvasRef.nativeElement.getBoundingClientRect();
             var x = event.clientX - rect.left;
             var y = event.clientY - rect.top;
-            if (typeof this.kvDiagram !== "undefined") {
-                this.kvDiagram.mouseOver(x, y);
+            if (typeof this._kvDiagram !== "undefined") {
+                this._kvDiagram.mouseOver(x, y);
             }
         }
     };
@@ -135,8 +142,8 @@ var KVDiagramComponent = (function () {
             var rect = this.canvasRef.nativeElement.getBoundingClientRect();
             var x = event.clientX - rect.left;
             var y = event.clientY - rect.top;
-            if (typeof this.kvDiagram !== "undefined") {
-                this.kvDiagram.clicked(x, y);
+            if (typeof this._kvDiagram !== "undefined") {
+                this._kvDiagram.clicked(x, y);
             }
         }
     };
@@ -152,8 +159,8 @@ __decorate([
 KVDiagramComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
         selector: 'app-kvdiagramm',
-        template: __webpack_require__(236),
-        styles: [__webpack_require__(230)],
+        template: __webpack_require__(240),
+        styles: [__webpack_require__(233)],
     }),
     __metadata("design:paramtypes", [])
 ], KVDiagramComponent);
@@ -163,11 +170,11 @@ var _a;
 
 /***/ }),
 
-/***/ 123:
+/***/ 124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicAnd; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -217,11 +224,11 @@ var LogicAnd = (function (_super) {
 
 /***/ }),
 
-/***/ 124:
+/***/ 125:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicBracketClose; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -258,11 +265,11 @@ var LogicBracketClose = (function (_super) {
 
 /***/ }),
 
-/***/ 125:
+/***/ 126:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicBracketOpen; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -299,11 +306,11 @@ var LogicBracketOpen = (function (_super) {
 
 /***/ }),
 
-/***/ 126:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicNeg; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -354,11 +361,11 @@ var LogicNeg = (function (_super) {
 
 /***/ }),
 
-/***/ 127:
+/***/ 128:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicOr; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -408,22 +415,22 @@ var LogicOr = (function (_super) {
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_var__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_and__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_or__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logic_neg__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logic_bracket_close__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_bracket_open__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shunting_yard__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_var__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_and__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_or__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logic_neg__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logic_bracket_close__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_bracket_open__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shunting_yard__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__phrase_string_methods__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__phrase_string_methods__ = __webpack_require__(24);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicRootExpression; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -563,7 +570,7 @@ var LogicRootExpression = (function (_super) {
         }
         return arrayR;
     };
-    LogicRootExpression.prototype.toDNF = function () {
+    LogicRootExpression.prototype.toDF = function () {
         var logicTreeUtils = new __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__["a" /* LogicTreeUtils */]();
         this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicNegs(this.logicChildExpressions[0]);
         this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicAnd(this.logicChildExpressions[0]);
@@ -575,7 +582,7 @@ var LogicRootExpression = (function (_super) {
 
 /***/ }),
 
-/***/ 129:
+/***/ 130:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -628,7 +635,345 @@ var LogicPhrase = (function () {
 
 /***/ }),
 
-/***/ 151:
+/***/ 131:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__primimplikante__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMC; });
+
+
+
+var QMC = (function () {
+    function QMC() {
+        this._notCombinedPrimimplikanten = new Array();
+        this._restMatrix = new Array();
+        this._essentialPrimeImplicants = new Array();
+        this._neededDcEquivalents = new Array();
+        this._bestCoverage = new Array();
+        this._notEssentialDcEquivalents = Array();
+    }
+    Object.defineProperty(QMC.prototype, "simplificationTable", {
+        get: function () {
+            return this._simplificationTable;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "notEssentialDcEquivalents", {
+        get: function () {
+            return this._notEssentialDcEquivalents;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "notCombinedPrimimplikanten", {
+        get: function () {
+            return this._notCombinedPrimimplikanten;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "restMatrix", {
+        get: function () {
+            return this._restMatrix;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "essentialPrimeImplicants", {
+        get: function () {
+            return this._essentialPrimeImplicants;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "neededDcEquivalents", {
+        get: function () {
+            return this._neededDcEquivalents;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "bestCoverage", {
+        get: function () {
+            return this._bestCoverage;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "existingDcEquivalebnts", {
+        get: function () {
+            return this._existingDcEquivalebnts;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    QMC.prototype.simplify = function (logicPhrase) {
+        this.initSimplificationTable(logicPhrase.varCount());
+        this.generatePrimimplikante(logicPhrase.phrase);
+        var round = 1;
+        while (true) {
+            var newColume = this.combinePrimimplikants(round, logicPhrase.varCount());
+            this.findNotCombinedPrimimplikantes(round - 1);
+            if (!newColume) {
+                this.simplificationTable.pop();
+                break;
+            }
+            round++;
+        }
+        this.findMinimalExpression();
+        return "";
+    };
+    QMC.prototype.generatePrimimplikante = function (phrase) {
+        phrase = __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__["a" /* StringMethods */].cleanUpDNF(phrase);
+        var conjunctionTerms = phrase.split("+");
+        for (var _i = 0, conjunctionTerms_1 = conjunctionTerms; _i < conjunctionTerms_1.length; _i++) {
+            var conjunctionTerm = conjunctionTerms_1[_i];
+            var varNames = conjunctionTerm.split("*");
+            var primiplikant = new __WEBPACK_IMPORTED_MODULE_0__primimplikante__["a" /* Primimplikante */](varNames);
+            var amountPositivVars = primiplikant.amountOfPositivVars;
+            this._simplificationTable[0][amountPositivVars].push(primiplikant);
+        }
+    };
+    QMC.prototype.initSimplificationTable = function (amountVars) {
+        this._simplificationTable = new Array();
+        this._simplificationTable[0] = new Array();
+        for (var i = 0; i <= amountVars; i++) {
+            this._simplificationTable[0][i] = new Array();
+        }
+    };
+    /**
+     *
+     * @param round
+     * @return returns true if it created a new colume in the simplificationTable
+     */
+    QMC.prototype.combinePrimimplikants = function (round, amountVars) {
+        this._simplificationTable[round] = new Array();
+        var newColume = false;
+        for (var i = 0; i <= amountVars - round; i++) {
+            this._simplificationTable[round][i] = new Array();
+        }
+        for (var amountClassIndex = 0; amountClassIndex < this._simplificationTable[round - 1].length; amountClassIndex++) {
+            for (var _i = 0, _a = this._simplificationTable[round - 1][amountClassIndex]; _i < _a.length; _i++) {
+                var primimplikante = _a[_i];
+                if (typeof this._simplificationTable[round - 1][amountClassIndex + 1] !== "undefined") {
+                    for (var _b = 0, _c = this._simplificationTable[round - 1][amountClassIndex + 1]; _b < _c.length; _b++) {
+                        var primimplikante2 = _c[_b];
+                        var newPrimimplikante = primimplikante.combine(primimplikante2);
+                        if (newPrimimplikante != null) {
+                            newColume = true;
+                            if (!this.allreadyExist(newPrimimplikante, this._simplificationTable[round][amountClassIndex])) {
+                                this._simplificationTable[round][amountClassIndex].push(newPrimimplikante);
+                            }
+                            primimplikante2.usedForCombination = true;
+                            primimplikante.usedForCombination = true;
+                        }
+                    }
+                }
+            }
+        }
+        return newColume;
+    };
+    QMC.prototype.findNotCombinedPrimimplikantes = function (round) {
+        for (var _i = 0, _a = this._simplificationTable[round]; _i < _a.length; _i++) {
+            var amountClass = _a[_i];
+            for (var _b = 0, amountClass_1 = amountClass; _b < amountClass_1.length; _b++) {
+                var primim = amountClass_1[_b];
+                if (!primim.usedForCombination)
+                    this._notCombinedPrimimplikanten.push(primim);
+            }
+        }
+    };
+    QMC.prototype.findMinimalExpression = function () {
+        this.generateRestMatrix();
+        this.findEssentialPrimeImplicants();
+        this.actualPrimeImplicantCombination = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](this._essentialPrimeImplicants);
+        /**
+         * lets start to solve the NP-complete problem XD
+         * calculate slave
+         */
+        this._bestCoverage = this.findBestCovareg(this._neededDcEquivalents, this._essentialPrimeImplicants, __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](this._essentialPrimeImplicants));
+    };
+    QMC.prototype.generateRestMatrix = function () {
+        this.existingDcEquivalents();
+        var i = 0;
+        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
+            var primeImplicant = _a[_i];
+            this._restMatrix[i] = new Array();
+            for (var _b = 0, _c = this._existingDcEquivalebnts; _b < _c.length; _b++) {
+                var dcEquivalent = _c[_b];
+                if (primeImplicant.decEquivalents.indexOf(dcEquivalent) != -1)
+                    this._restMatrix[i][dcEquivalent] = "x";
+                else
+                    this._restMatrix[i][dcEquivalent] = " ";
+            }
+            i++;
+        }
+    };
+    QMC.prototype.findEssentialPrimeImplicants = function () {
+        for (var _i = 0, _a = this._existingDcEquivalebnts; _i < _a.length; _i++) {
+            var dcEquivalent = _a[_i];
+            var amountOfCovareg = 0;
+            var lastCoverPrimeImplicant = 0;
+            var i = void 0;
+            for (i = 0; i < this._notCombinedPrimimplikanten.length; i++) {
+                if (this._restMatrix[i][dcEquivalent] == "x") {
+                    amountOfCovareg++;
+                    lastCoverPrimeImplicant = i;
+                }
+            }
+            if (amountOfCovareg == 1) {
+                if (this.essentialPrimeImplicants.indexOf(this._notCombinedPrimimplikanten[lastCoverPrimeImplicant]) == -1) {
+                    this._essentialPrimeImplicants.push(this._notCombinedPrimimplikanten[lastCoverPrimeImplicant]);
+                }
+            }
+            else {
+                this._neededDcEquivalents.push(dcEquivalent);
+                this._notEssentialDcEquivalents.push(dcEquivalent);
+            }
+        }
+        //Delete all covered dcEquivalents
+        for (var _b = 0, _c = this._essentialPrimeImplicants; _b < _c.length; _b++) {
+            var implicant = _c[_b];
+            for (var _d = 0, _e = implicant.decEquivalents; _d < _e.length; _d++) {
+                var dcEquivalent = _e[_d];
+                var index = this._neededDcEquivalents.indexOf(dcEquivalent, 0);
+                if (index > -1) {
+                    this._neededDcEquivalents.splice(index, 1);
+                }
+            }
+        }
+    };
+    QMC.prototype.existingDcEquivalents = function () {
+        this._existingDcEquivalebnts = new Array();
+        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
+            var primeImplicant = _a[_i];
+            for (var _b = 0, _c = primeImplicant.decEquivalents; _b < _c.length; _b++) {
+                var dcEquivalent = _c[_b];
+                if (this._existingDcEquivalebnts.indexOf(dcEquivalent) == -1)
+                    this._existingDcEquivalebnts.push(dcEquivalent);
+            }
+        }
+        this._existingDcEquivalebnts.sort(function (n1, n2) {
+            if (n1 > n2) {
+                return 1;
+            }
+            if (n1 < n2) {
+                return -1;
+            }
+            return 0;
+        });
+    };
+    QMC.prototype.findBestCovareg = function (neededDcEquivalents, usedPrimImplicants, any) {
+        var dcEquivalentToCover = neededDcEquivalents.pop();
+        neededDcEquivalents.push(dcEquivalentToCover);
+        var amountOfPrimeImplicants = 99999999999999999999;
+        if (neededDcEquivalents.length == 0)
+            return usedPrimImplicants;
+        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
+            var onePrimeImplicant = _a[_i];
+            if (onePrimeImplicant.decEquivalents.indexOf(dcEquivalentToCover) != -1) {
+                var newNeededDcEquivalents = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](neededDcEquivalents);
+                for (var _b = 0, _c = onePrimeImplicant.decEquivalents; _b < _c.length; _b++) {
+                    var dcEquivalent = _c[_b];
+                    var index = newNeededDcEquivalents.indexOf(dcEquivalent, 0);
+                    if (index > -1) {
+                        newNeededDcEquivalents.splice(index, 1);
+                    }
+                }
+                var newNeededPrimImplicants = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](usedPrimImplicants);
+                newNeededPrimImplicants.push(onePrimeImplicant);
+                var acutalUsedPrimImplicants = this.findBestCovareg(newNeededDcEquivalents, newNeededPrimImplicants, any);
+                if (amountOfPrimeImplicants >= acutalUsedPrimImplicants.length) {
+                    amountOfPrimeImplicants = acutalUsedPrimImplicants.length;
+                    usedPrimImplicants = acutalUsedPrimImplicants;
+                }
+            }
+        }
+        return usedPrimImplicants;
+    };
+    QMC.prototype.allreadyExist = function (newPrimimplikante, param2) {
+        for (var _i = 0, param2_1 = param2; _i < param2_1.length; _i++) {
+            var prim = param2_1[_i];
+            if (prim.toString() == newPrimimplikante.toString()) {
+                return true;
+            }
+        }
+        return false;
+    };
+    return QMC;
+}());
+
+//# sourceMappingURL=qmc.js.map
+
+/***/ }),
+
+/***/ 132:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__qmc_qmc__ = __webpack_require__(131);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMCVisualizerComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var QMCVisualizerComponent = (function () {
+    function QMCVisualizerComponent() {
+        this.qmc = new __WEBPACK_IMPORTED_MODULE_1__qmc_qmc__["a" /* QMC */]();
+    }
+    QMCVisualizerComponent.prototype.ngOnInit = function () {
+    };
+    QMCVisualizerComponent.prototype.newQMC = function (qmc) {
+        this.qmc = qmc;
+    };
+    QMCVisualizerComponent.prototype.getTableBackground = function (groupIndex) {
+        if (groupIndex % 2 == 1)
+            return "table-info";
+        else
+            return "";
+    };
+    QMCVisualizerComponent.prototype.getEssentialPrimBackground = function (indexI) {
+        var prim = this.qmc.notCombinedPrimimplikanten[indexI];
+        if (this.qmc.essentialPrimeImplicants.indexOf(prim) != -1)
+            return "table-warning";
+        else
+            return "";
+    };
+    QMCVisualizerComponent.prototype.getEssentialPrimDcBackground = function (dcEq) {
+        if (this.qmc.notEssentialDcEquivalents.indexOf(dcEq) == -1)
+            return "table-warning";
+        else
+            return "";
+    };
+    return QMCVisualizerComponent;
+}());
+QMCVisualizerComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
+        selector: 'app-qmcvisualizer',
+        template: __webpack_require__(243),
+        styles: [__webpack_require__(236)]
+    }),
+    __metadata("design:paramtypes", [])
+], QMCVisualizerComponent);
+
+//# sourceMappingURL=qmcvisualizer.component.js.map
+
+/***/ }),
+
+/***/ 153:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -637,20 +982,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 151;
+webpackEmptyContext.id = 153;
 
 
 /***/ }),
 
-/***/ 152:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(177);
 
 
 
@@ -663,91 +1008,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 16:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbstractLogicExpression; });
-var AbstractLogicExpression = (function () {
-    function AbstractLogicExpression() {
-        this._logicChildExpressions = Array();
-        this.rightAssociative = false;
-        this._precedence = 0;
-        this._parsed = false;
-        this._expressionType = "";
-    }
-    Object.defineProperty(AbstractLogicExpression.prototype, "parsed", {
-        get: function () {
-            return this._parsed;
-        },
-        set: function (value) {
-            this._parsed = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AbstractLogicExpression.prototype, "expressionType", {
-        get: function () {
-            return this._expressionType;
-        },
-        set: function (value) {
-            this._expressionType = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AbstractLogicExpression.prototype, "precedence", {
-        get: function () {
-            return this._precedence;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AbstractLogicExpression.prototype, "logicChildExpressions", {
-        get: function () {
-            return this._logicChildExpressions;
-        },
-        set: function (value) {
-            this._logicChildExpressions = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    AbstractLogicExpression.prototype.add = function (oldVar) {
-        this.logicChildExpressions.push(oldVar);
-    };
-    AbstractLogicExpression.prototype.isRightAssociative = function () {
-        if (this.rightAssociative)
-            return true;
-        else
-            return false;
-    };
-    AbstractLogicExpression.prototype.isLeftAssociative = function () {
-        if (!this.rightAssociative)
-            return true;
-        else
-            return false;
-    };
-    AbstractLogicExpression.prototype.precedenceLessOrEqual = function (otherOperand) {
-        if (this._precedence <= otherOperand.precedence)
-            return true;
-        else
-            return false;
-    };
-    AbstractLogicExpression.prototype.precedenceLess = function (otherOperand) {
-        if (this._precedence < otherOperand.precedence)
-            return true;
-        else
-            return false;
-    };
-    return AbstractLogicExpression;
-}());
-
-//# sourceMappingURL=logic-expression-abstract.js.map
-
-/***/ }),
-
-/***/ 162:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -770,8 +1031,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(234),
-        styles: [__webpack_require__(228)]
+        template: __webpack_require__(238),
+        styles: [__webpack_require__(231)]
     })
 ], AppComponent);
 
@@ -779,20 +1040,21 @@ AppComponent = __decorate([
 
 /***/ }),
 
-/***/ 163:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_input_logic_input_component__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navbar_navbar_component__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_input_logic_input_component__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navbar_navbar_component__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__(132);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -800,6 +1062,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -823,6 +1086,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_7__navbar_navbar_component__["a" /* NavbarComponent */],
             __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__["a" /* BasicLogicPhraseInfoComponent */],
             __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__["a" /* KVDiagramComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__qmcvisualizer_qmcvisualizer_component__["a" /* QMCVisualizerComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -839,7 +1103,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 164:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -878,7 +1142,7 @@ var Coordinate = (function () {
 
 /***/ }),
 
-/***/ 165:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1005,13 +1269,13 @@ var KvDiagramEntry = (function () {
 
 /***/ }),
 
-/***/ 166:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_entry__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kvdiagram__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kvdiagram_segment__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_entry__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kvdiagram__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kvdiagram_segment__ = __webpack_require__(169);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KvDiagramGenerator; });
 
 
@@ -1119,7 +1383,7 @@ var KvDiagramGenerator = (function () {
 
 /***/ }),
 
-/***/ 167:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1237,12 +1501,96 @@ var KVDiagramSegment = (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 17:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__coordinate__ = __webpack_require__(164);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AbstractLogicExpression; });
+var AbstractLogicExpression = (function () {
+    function AbstractLogicExpression() {
+        this._logicChildExpressions = Array();
+        this.rightAssociative = false;
+        this._precedence = 0;
+        this._parsed = false;
+        this._expressionType = "";
+    }
+    Object.defineProperty(AbstractLogicExpression.prototype, "parsed", {
+        get: function () {
+            return this._parsed;
+        },
+        set: function (value) {
+            this._parsed = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractLogicExpression.prototype, "expressionType", {
+        get: function () {
+            return this._expressionType;
+        },
+        set: function (value) {
+            this._expressionType = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractLogicExpression.prototype, "precedence", {
+        get: function () {
+            return this._precedence;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractLogicExpression.prototype, "logicChildExpressions", {
+        get: function () {
+            return this._logicChildExpressions;
+        },
+        set: function (value) {
+            this._logicChildExpressions = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AbstractLogicExpression.prototype.add = function (oldVar) {
+        this.logicChildExpressions.push(oldVar);
+    };
+    AbstractLogicExpression.prototype.isRightAssociative = function () {
+        if (this.rightAssociative)
+            return true;
+        else
+            return false;
+    };
+    AbstractLogicExpression.prototype.isLeftAssociative = function () {
+        if (!this.rightAssociative)
+            return true;
+        else
+            return false;
+    };
+    AbstractLogicExpression.prototype.precedenceLessOrEqual = function (otherOperand) {
+        if (this._precedence <= otherOperand.precedence)
+            return true;
+        else
+            return false;
+    };
+    AbstractLogicExpression.prototype.precedenceLess = function (otherOperand) {
+        if (this._precedence < otherOperand.precedence)
+            return true;
+        else
+            return false;
+    };
+    return AbstractLogicExpression;
+}());
+
+//# sourceMappingURL=logic-expression-abstract.js.map
+
+/***/ }),
+
+/***/ 170:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__coordinate__ = __webpack_require__(166);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KVDiagram; });
 
 
@@ -1391,17 +1739,19 @@ var KVDiagram = (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__(132);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicInputComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1418,11 +1768,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var LogicInputComponent = (function () {
     function LogicInputComponent(basicLogicPhraseParser) {
         this.basicLogicPhraseParser = basicLogicPhraseParser;
-        this.logicPhraseString = "";
-        this.logicExtraVars = "";
+        this.logicPhraseString = "a+b";
+        this.logicExtraVars = "c d";
     }
     LogicInputComponent.prototype.ngOnInit = function () {
     };
@@ -1430,19 +1782,26 @@ var LogicInputComponent = (function () {
         this.kvDiagramCom.logicInputCom = this;
         var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         logicRootExpression.parseLogicString(this.logicPhraseString);
-        var logicExpressionInDNF = __WEBPACK_IMPORTED_MODULE_5_lodash__["cloneDeep"](logicRootExpression);
-        logicExpressionInDNF.toDNF();
+        var logicExpressionInDF = __WEBPACK_IMPORTED_MODULE_5_lodash__["cloneDeep"](logicRootExpression);
+        logicExpressionInDF.toDF();
         this.basicLogicPhraseInfoCom.logicRootExpression = logicRootExpression;
-        this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicExpressionInDNF;
-        this.logicDNFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDNF.phraseToStringWithoutBreakets(), this.logicExtraVars);
+        this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicExpressionInDF;
+        this.logicDFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDF.phraseToStringWithoutBreakets(), this.logicExtraVars);
         this.logicPhrase = this.basicLogicPhraseParser.parse(this.logicPhraseString, this.logicExtraVars);
         this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
-        this.kvDiagramCom.parse(this.logicDNFPhrase);
+        this.kvDiagramCom.parse(this.logicDFPhrase);
+        this.updateDNF(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix());
+        var qmc = new __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__["a" /* QMC */]();
+        qmc.simplify(this.basicLogicPhraseParser.parse(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix(), this.logicExtraVars));
+        this.qmcVisualizerCom.newQMC(qmc);
     };
     LogicInputComponent.prototype.updateDNF = function (newDnf) {
         var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         logicRootExpression.parseLogicString(newDnf);
-        this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
+        this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicRootExpression;
+        var qmc = new __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__["a" /* QMC */]();
+        qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
+        this.qmcVisualizerCom.newQMC(qmc);
     };
     return LogicInputComponent;
 }());
@@ -1454,29 +1813,33 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
     __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__["a" /* KVDiagramComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__["a" /* KVDiagramComponent */]) === "function" && _b || Object)
 ], LogicInputComponent.prototype, "kvDiagramCom", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["p" /* Input */])(),
+    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__qmcvisualizer_qmcvisualizer_component__["a" /* QMCVisualizerComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__qmcvisualizer_qmcvisualizer_component__["a" /* QMCVisualizerComponent */]) === "function" && _c || Object)
+], LogicInputComponent.prototype, "qmcVisualizerCom", void 0);
 LogicInputComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
         selector: 'app-logic-input',
-        template: __webpack_require__(237),
-        styles: [__webpack_require__(231)],
+        template: __webpack_require__(241),
+        styles: [__webpack_require__(234)],
         providers: [__WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */]]
     }),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */]) === "function" && _d || Object])
 ], LogicInputComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=logic-input.component.js.map
 
 /***/ }),
 
-/***/ 170:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_or__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_and__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_neg__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_var__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_or__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_and__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_neg__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_var__ = __webpack_require__(55);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicTreeUtils; });
 
 
@@ -1576,13 +1939,13 @@ var LogicTreeUtils = (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_var__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_bracket_open__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_bracket_close__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_var__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_bracket_open__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_bracket_close__ = __webpack_require__(125);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShuntingYard; });
 
 
@@ -1638,7 +2001,7 @@ var ShuntingYard = (function () {
 
 /***/ }),
 
-/***/ 172:
+/***/ 174:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1664,8 +2027,8 @@ var NavbarComponent = (function () {
 NavbarComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
         selector: 'app-navbar',
-        template: __webpack_require__(238),
-        styles: [__webpack_require__(232)]
+        template: __webpack_require__(242),
+        styles: [__webpack_require__(235)]
     }),
     __metadata("design:paramtypes", [])
 ], NavbarComponent);
@@ -1674,13 +2037,13 @@ NavbarComponent = __decorate([
 
 /***/ }),
 
-/***/ 173:
+/***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_phrase__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__string_methods__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_phrase__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__string_methods__ = __webpack_require__(24);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicLogicPhraseParser; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1757,7 +2120,147 @@ BasicLogicPhraseParser = __decorate([
 
 /***/ }),
 
-/***/ 174:
+/***/ 176:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__(24);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Primimplikante; });
+
+var Primimplikante = (function () {
+    function Primimplikante(varNames, decEquivalents) {
+        if (decEquivalents === void 0) { decEquivalents = new Array(); }
+        this.vars = new Array();
+        this._amountOfPositivVars = 0;
+        this.onlyPositivars = new Array();
+        this._usedForCombination = false;
+        this._decEquivalents = Array();
+        this._decEquivalents = decEquivalents;
+        for (var _i = 0, varNames_1 = varNames; _i < varNames_1.length; _i++) {
+            var varName = varNames_1[_i];
+            this.vars.push(varName);
+            this.onlyPositivars.push(__WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__["a" /* StringMethods */].replaceAll(varName, "~", ""));
+            if (!(varName.indexOf("~") >= 0))
+                this._amountOfPositivVars++;
+        }
+        if (this._decEquivalents.length == 0)
+            this.genDecEquivalent();
+    }
+    Primimplikante.prototype.toString = function () {
+        var string = "";
+        for (var _i = 0, _a = this.vars; _i < _a.length; _i++) {
+            var vars = _a[_i];
+            string += vars;
+        }
+        return string;
+    };
+    Primimplikante.prototype.getDcEquivalentsString = function () {
+        var string = "";
+        for (var _i = 0, _a = this.decEquivalents; _i < _a.length; _i++) {
+            var vars = _a[_i];
+            string += vars + " ";
+        }
+        return string;
+    };
+    Object.defineProperty(Primimplikante.prototype, "decEquivalents", {
+        get: function () {
+            return this._decEquivalents;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Primimplikante.prototype, "usedForCombination", {
+        get: function () {
+            return this._usedForCombination;
+        },
+        set: function (value) {
+            this._usedForCombination = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Primimplikante.prototype, "amountOfPositivVars", {
+        get: function () {
+            return this._amountOfPositivVars;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @brief returns a simplification of both primimplikante or null if you cant combine them
+     * @param primimplikante2
+     */
+    Primimplikante.prototype.combine = function (primimplikante2) {
+        var hammingDistance = 0;
+        var varsOfNewPrimimplikante = Array();
+        if (!this.representSameVars(primimplikante2))
+            return null;
+        for (var _i = 0, _a = this.vars; _i < _a.length; _i++) {
+            var varName = _a[_i];
+            for (var _b = 0, _c = primimplikante2.vars; _b < _c.length; _b++) {
+                var varName2 = _c[_b];
+                if (this.sameVar(varName, varName2)) {
+                    if (varName2 == varName) {
+                        varsOfNewPrimimplikante.push(varName);
+                    }
+                    else {
+                        hammingDistance++;
+                    }
+                }
+            }
+        }
+        var decEquivalents = this.decEquivalents.concat(primimplikante2.decEquivalents);
+        if (hammingDistance == 1)
+            return new Primimplikante(varsOfNewPrimimplikante, decEquivalents);
+        return null;
+    };
+    Primimplikante.prototype.sameVar = function (varName, varName2) {
+        var varN2 = __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__["a" /* StringMethods */].replaceAll(varName2, "~", "");
+        var varN = __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__["a" /* StringMethods */].replaceAll(varName, "~", "");
+        if (varN == varN2)
+            return true;
+        return false;
+    };
+    Primimplikante.prototype.representSameVars = function (primimplikante2) {
+        for (var _i = 0, _a = this.onlyPositivars; _i < _a.length; _i++) {
+            var varN = _a[_i];
+            if (primimplikante2.onlyPositivars.indexOf(varN) == -1)
+                return false;
+        }
+        return true;
+    };
+    Primimplikante.prototype.sortVars = function () {
+        this.vars = this.vars.sort(function (n1, n2) {
+            n1 = __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__["a" /* StringMethods */].replaceAll(n1, "~", "");
+            n2 = __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__["a" /* StringMethods */].replaceAll(n2, "~", "");
+            if (n1 > n2) {
+                return 1;
+            }
+            if (n1 < n2) {
+                return -1;
+            }
+            return 0;
+        });
+    };
+    Primimplikante.prototype.genDecEquivalent = function () {
+        this.sortVars();
+        this._decEquivalents[0] = 0;
+        var exponent = 0;
+        for (var _i = 0, _a = this.vars; _i < _a.length; _i++) {
+            var varName = _a[_i];
+            if (varName.indexOf("~") == -1)
+                this._decEquivalents[0] += Math.pow(2, exponent);
+            exponent++;
+        }
+    };
+    return Primimplikante;
+}());
+
+//# sourceMappingURL=primimplikante.js.map
+
+/***/ }),
+
+/***/ 177:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1774,10 +2277,10 @@ var environment = {
 
 /***/ }),
 
-/***/ 228:
+/***/ 231:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(15)(false);
 // imports
 
 
@@ -1792,64 +2295,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 229:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(19)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 230:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(19)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 231:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(19)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ 232:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(19)(false);
+exports = module.exports = __webpack_require__(15)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 233:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(15)(false);
 // imports
 
 
@@ -1865,53 +2332,141 @@ module.exports = module.exports.toString();
 /***/ }),
 
 /***/ 234:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col colMargin\"><app-logic-input #logicInput [kvDiagramCom]=\"kvDiagramCom\" [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"></app-logic-input></div>\n    <div class=\"col colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n</div>\n"
+exports = module.exports = __webpack_require__(15)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 235:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Phrase</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">VarNames</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDNF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
+exports = module.exports = __webpack_require__(15)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 236:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">KV Diagramm</h4>\n    <canvas (click)=\"cklickedCanvas($event)\" (mousemove)=\"canvasMouseMove($event)\"  (mouseenter)=\"canvasMouseEnter()\" (mouseleave)=\"canvasMouseLeave()\"   #kvDiagramCanvas width=\"1000\" height=\"1000\">\n    </canvas>\n  </div>\n</div>\n\n"
+exports = module.exports = __webpack_require__(15)(false);
+// imports
 
-/***/ }),
 
-/***/ 237:
-/***/ (function(module, exports) {
+// module
+exports.push([module.i, "", ""]);
 
-module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Logik input</h4>\n      <p class=\"card-text\">Trage hier die logischen Verknüpfungen ein</p>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Logik Phrase</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicPhraseString\" type=\"textarea\" value=\"\" id=\"logicPhrase\">\n          </textarea>\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Zusätzliche Variablen</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicExtraVars\" type=\"textarea\" value=\"\" id=\"logicExtraVars\">\n          </textarea>\n        </div>\n\n        <div class=\"col-12\">\n          Hier kannst du zusätzliche Variablen angeben, falls der Logische Ausdruck nicht in der DNF sondern nur in  der DF ist.\n          (Trenne über \" \")\n        </div>\n\n      </div>\n      <div class=\"row\">\n        <br>\n        <div class=\"col-4\">\n          <button type=\"button\" (click)=\"parseLogicPhrase()\"  class=\"btn btn-primary\">Parse</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 238:
 /***/ (function(module, exports) {
 
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col colMargin\">\n      <app-logic-input\n        #logicInput\n        [kvDiagramCom]=\"kvDiagramCom\"\n        [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"\n        [qmcVisualizerCom]=\"qcmvisualizercom\">\n      </app-logic-input>\n    </div>\n    <div class=\"col colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 239:
+/***/ (function(module, exports) {
+
+module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Phrase</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">VarNames</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
+
+/***/ }),
+
+/***/ 24:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringMethods; });
+var StringMethods = (function () {
+    function StringMethods() {
+    }
+    StringMethods.replaceAll = function (str, find, replace) {
+        return str.replace(new RegExp(this.escapeRegExp(find), 'g'), replace);
+    };
+    StringMethods.escapeRegExp = function (str) {
+        return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+    };
+    StringMethods.cleanUpDNF = function (phrase) {
+        phrase = StringMethods.replaceAll(phrase, " ", "");
+        phrase = StringMethods.replaceAll(phrase, "(", "");
+        phrase = StringMethods.replaceAll(phrase, ")", "");
+        return phrase;
+    };
+    return StringMethods;
+}());
+
+//# sourceMappingURL=string-methods.js.map
+
+/***/ }),
+
+/***/ 240:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">KV Diagramm</h4>\n    <canvas (click)=\"cklickedCanvas($event)\" (mousemove)=\"canvasMouseMove($event)\"  (mouseenter)=\"canvasMouseEnter()\" (mouseleave)=\"canvasMouseLeave()\"\n            #kvDiagramCanvas width=\"1000\" height=\"400\">\n    </canvas>\n  </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ 241:
+/***/ (function(module, exports) {
+
+module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Logik input</h4>\n      <p class=\"card-text\">Trage hier die logischen Verknüpfungen ein</p>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Logik Phrase</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicPhraseString\" type=\"textarea\" value=\"\" id=\"logicPhrase\" >\n          </textarea>\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Zusätzliche Variablen</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicExtraVars\" type=\"textarea\" value=\"\" id=\"logicExtraVars\">\n          </textarea>\n        </div>\n\n        <div class=\"col-12\">\n          Hier kannst du zusätzliche Variablen angeben, falls der Logische Ausdruck nicht in der DNF sondern nur in  der DF ist.\n          (Trenne über \" \")\n        </div>\n\n      </div>\n      <div class=\"row\">\n        <br>\n        <div class=\"col-4\">\n          <button type=\"button\" (click)=\"parseLogicPhrase()\"  class=\"btn btn-primary\">Parse</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+
+/***/ }),
+
+/***/ 242:
+/***/ (function(module, exports) {
+
 module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <a class=\"navbar-brand\" href=\"#\">KV-Toolbox</a>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
 
 /***/ }),
 
-/***/ 267:
+/***/ 243:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">QMC</h4>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Vereinfachungstabelle</h5>\n      <ng-container *ngFor= \"let table of qmc.simplificationTable; let myIndex = index\">\n        <div class=\"col-md-4\">\n          <table class=\"table table-bordered\">\n            <thead>\n              <tr scope=\"row\">\n                <th>Group</th>\n                <th>DCEq.</th>\n                <th>Prim.</th>\n                <th>Used</th>\n              </tr>\n            </thead>\n\n            <tbody>\n              <ng-container *ngFor= \"let group of table let groupIndex = index\">\n                <ng-container *ngFor= \"let primeImplicant of group\">\n                  <ng-container></ng-container>\n                  <tr class=\"{{getTableBackground(groupIndex)}}\" scope=\"row\">\n                    <th>\n                      {{groupIndex}}\n                    </th>\n                    <td>\n                      {{primeImplicant.getDcEquivalentsString()}}\n                    </td>\n                    <td>\n                      {{primeImplicant.toString()}}\n                    </td>\n                    <td>\n                      <ng-container *ngIf=\"primeImplicant._usedForCombination\">\n                        &#10004;\n                      </ng-container>\n                      <ng-container *ngIf=\"!primeImplicant._usedForCombination\">\n                        &#10008;\n                      </ng-container>\n                    </td>\n                  </tr>\n                </ng-container>\n              </ng-container>\n            </tbody>\n\n          </table>\n        </div>\n\n      </ng-container>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Auswahl der wesentlichen Primimplikanten</h5>\n      <div class=\"col-md-4\">\n        <table class=\"table table-bordered\">\n          <thead>\n          <tr scope=\"row\">\n            <th>Prim/DCEq</th>\n            <ng-container *ngFor=\"let dcEq of qmc.existingDcEquivalebnts\">\n              <th>{{dcEq}}</th>\n            </ng-container>\n          </tr>\n          </thead>\n\n          <tbody>\n            <ng-container *ngFor=\"let prim of qmc.restMatrix; let indexI = index\">\n                <tr scope=\"row\">\n                  <td class=\"{{getEssentialPrimBackground(indexI)}}\">\n                    {{qmc.notCombinedPrimimplikanten[indexI]}}\n                  </td>\n                  <ng-container *ngFor=\"let dcEq of prim; let dcEqNumber = index\">\n                    <ng-container *ngIf=\"dcEq\">\n                      <td class=\"{{getEssentialPrimDcBackground(dcEqNumber)}}\">\n                        {{dcEq}}\n                      </td>\n                    </ng-container>\n\n                  </ng-container>\n                </tr>\n            </ng-container>\n          </tbody>\n\n        </table>\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Minimale Form</h5>\n      <div class=\"col-md-4\">\n        <ng-container *ngFor=\"let prim of qmc.bestCoverage; let indexI = index\">\n          {{prim.toString()}} +\n        </ng-container>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(152);
+module.exports = __webpack_require__(154);
 
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicVar; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -1968,28 +2523,7 @@ var LogicVar = (function (_super) {
 
 //# sourceMappingURL=logic-var.js.map
 
-/***/ }),
-
-/***/ 55:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StringMethods; });
-var StringMethods = (function () {
-    function StringMethods() {
-    }
-    StringMethods.replaceAll = function (str, find, replace) {
-        return str.replace(new RegExp(this.escapeRegExp(find), 'g'), replace);
-    };
-    StringMethods.escapeRegExp = function (str) {
-        return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-    };
-    return StringMethods;
-}());
-
-//# sourceMappingURL=string-methods.js.map
-
 /***/ })
 
-},[267]);
+},[272]);
 //# sourceMappingURL=main.bundle.js.map

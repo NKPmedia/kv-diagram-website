@@ -9,6 +9,7 @@ import { LogicInputComponent } from './logic-input/logic-input.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BasicLogicPhraseInfoComponent } from './basic-logic-phrase-info/basic-logic-phrase-info.component';
 import { KVDiagramComponent } from './kvdiagram/kvdiagram.component';
+import { QMCVisualizerComponent } from './qmcvisualizer/qmcvisualizer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { KVDiagramComponent } from './kvdiagram/kvdiagram.component';
     NavbarComponent,
     BasicLogicPhraseInfoComponent,
     KVDiagramComponent,
+    QMCVisualizerComponent,
   ],
   imports: [
     BrowserModule,

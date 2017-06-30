@@ -5,10 +5,20 @@
     {{welcomeMessage}}
   </h1>
   <div class="row">
-    <div class="col colMargin"><app-logic-input #logicInput [kvDiagramCom]="kvDiagramCom" [basicLogicPhraseInfoCom]="basicLogicPhraseInfoCom"></app-logic-input></div>
+    <div class="col colMargin">
+      <app-logic-input
+        #logicInput
+        [kvDiagramCom]="kvDiagramCom"
+        [basicLogicPhraseInfoCom]="basicLogicPhraseInfoCom"
+        [qmcVisualizerCom]="qcmvisualizercom">
+      </app-logic-input>
+    </div>
     <div class="col colMargin"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>
   </div>
   <div class="row">
     <div class="col-12 colMargin"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>
+  </div>
+  <div class="row">
+    <div class="col-12 colMargin"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>
   </div>
 </div>

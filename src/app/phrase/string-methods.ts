@@ -7,4 +7,11 @@ export class StringMethods {
   public static escapeRegExp(str) {
     return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
   }
+
+  public static cleanUpDNF(phrase: string): string {
+    phrase = StringMethods.replaceAll(phrase," ","");
+    phrase = StringMethods.replaceAll(phrase,"(","");
+    phrase = StringMethods.replaceAll(phrase,")","");
+    return phrase;
+  }
 }
