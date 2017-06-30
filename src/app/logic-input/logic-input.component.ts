@@ -63,7 +63,7 @@ export class LogicInputComponent implements OnInit {
     var last = "";
     for (var i = 0; i < oldString.length; i++) {
       var curr = oldString.charAt(i);
-      if (curr.match(/([a-zA-Z]+)/) != null && last.match(/([a-zA-Z]+)/)) {
+      if ((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([a-zA-Z]+)/)) {
         result += "*" + curr;
       } else {
         result += curr;
