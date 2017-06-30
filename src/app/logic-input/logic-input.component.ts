@@ -36,7 +36,7 @@ export class LogicInputComponent implements OnInit {
 
     this.kvDiagramCom.logicInputCom = this;
 
-    let separatedVariableString = separateVariables(this.logicPhraseString);
+    let separatedVariableString = this.separateVariables(this.logicPhraseString);
 
     let logicRootExpression = new LogicRootExpression();
     logicRootExpression.parseLogicString(separatedVariableString);
@@ -75,7 +75,7 @@ export class LogicInputComponent implements OnInit {
     this.qmcVisualizerCom.newQMC(qmc);
   }
 
-  separateVariables(oldString: string) {
+  private separateVariables(oldString: string) {
     var result = "";
     var last = "";
     for (var i = 0; i < oldString.length; i++) {
@@ -88,5 +88,5 @@ export class LogicInputComponent implements OnInit {
       last = curr;
     }
     return result;
-  } 
+  }
 }

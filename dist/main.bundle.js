@@ -1780,14 +1780,15 @@ var LogicInputComponent = (function () {
     };
     LogicInputComponent.prototype.parseLogicPhrase = function () {
         this.kvDiagramCom.logicInputCom = this;
+        var separatedVariableString = this.separateVariables(this.logicPhraseString);
         var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
-        logicRootExpression.parseLogicString(this.logicPhraseString);
+        logicRootExpression.parseLogicString(separatedVariableString);
         var logicExpressionInDF = __WEBPACK_IMPORTED_MODULE_5_lodash__["cloneDeep"](logicRootExpression);
         logicExpressionInDF.toDF();
         this.basicLogicPhraseInfoCom.logicRootExpression = logicRootExpression;
         this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicExpressionInDF;
         this.logicDFPhrase = this.basicLogicPhraseParser.parse(logicExpressionInDF.phraseToStringWithoutBreakets(), this.logicExtraVars);
-        this.logicPhrase = this.basicLogicPhraseParser.parse(this.logicPhraseString, this.logicExtraVars);
+        this.logicPhrase = this.basicLogicPhraseParser.parse(separatedVariableString, this.logicExtraVars);
         this.basicLogicPhraseInfoCom.logicPhrase = this.logicPhrase;
         this.kvDiagramCom.parse(this.logicDFPhrase);
         this.updateDNF(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix());
@@ -1802,6 +1803,21 @@ var LogicInputComponent = (function () {
         var qmc = new __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__["a" /* QMC */]();
         qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
         this.qmcVisualizerCom.newQMC(qmc);
+    };
+    LogicInputComponent.prototype.separateVariables = function (oldString) {
+        var result = "";
+        var last = "";
+        for (var i = 0; i < oldString.length; i++) {
+            var curr = oldString.charAt(i);
+            if (curr.match(/([a-zA-Z]+)/) != null && last.match(/([a-zA-Z]+)/)) {
+                result += "*" + curr;
+            }
+            else {
+                result += curr;
+            }
+            last = curr;
+        }
+        return result;
     };
     return LogicInputComponent;
 }());
