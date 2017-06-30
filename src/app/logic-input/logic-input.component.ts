@@ -59,27 +59,16 @@ export class LogicInputComponent implements OnInit {
   }
 
   separateVariables(oldString: string) {
-    var array = oldString.split(/((?=[a-zA-Z])[a-zA-Z]*)/);
-    var i = 0;
-    var j = 0;
     var result = "";
-    for (var i = 0; i < array.length; i++) {
-
-      if (array[i] != "") {
-        if (array[i].length > 1 && array[i].match(/([a-zA-Z]+)/) != null) {
-
-          for (var j = 0; j < array[i].length-1; ++j) {
-            result += array[i].charAt(j) + "*";
-          }
-
-          result += array[i].charAt(array[i].length-1);
-
-        }
-        else {
-          result += array[i];
-        }
+    var last = "";
+    for (var i = 0; i < oldString.length; i++) {
+      var curr = oldString.charAt(i);
+      if (curr.match(/([a-zA-Z]+)/) != null && last.match(/([a-zA-Z]+)/)) {
+        result += "*" + curr;
+      } else {
+        result += curr;
       }
-
+      last = curr;
     }
     return result;
   } 
