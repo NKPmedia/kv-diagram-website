@@ -3,6 +3,7 @@ import {LogicPhrase} from "../phrase/logic-phrase";
 import {KVDiagram} from "../kv-diagram-model/kvdiagram";
 import {KvDiagramGenerator} from "../kv-diagram-model/kv-diagram-generator";
 import {LogicInputComponent} from "../logic-input/logic-input.component";
+import {QMC} from "../qmc/qmc";
 
 @Component({
   selector: 'app-kvdiagramm',
@@ -15,6 +16,7 @@ export class KVDiagramComponent implements OnInit {
   private _kvDiagram: KVDiagram;
   private mouseInCanvas: boolean = false;
   private _logicInputCom: LogicInputComponent;
+  private qmc: QMC;
 
   constructor() { }
 
@@ -61,6 +63,7 @@ export class KVDiagramComponent implements OnInit {
         this._kvDiagram.mouseOver(x,y);
       }
     }
+    this.kvDiagram.drawGroups(this.canvasRef);
   }
 
   cklickedCanvas(event: any) {
@@ -71,10 +74,17 @@ export class KVDiagramComponent implements OnInit {
       if(typeof this._kvDiagram !== "undefined") {
         this._kvDiagram.clicked(x,y);
       }
+      this.kvDiagram.draw(this.canvasRef);
+      this.kvDiagram.drawGroups(this.canvasRef);
     }
   }
 
   updateDNF(newDnf: string) {
     this._logicInputCom.updateDNF(newDnf);
+  }
+
+  newQMC(qmc: QMC) {
+    this.kvDiagram.newQMC(qmc);
+    this.kvDiagram.drawGroups(this.canvasRef);
   }
 }

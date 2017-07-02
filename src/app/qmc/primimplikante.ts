@@ -3,7 +3,7 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class Primimplikante {
 
 
-  private vars: string[] = new Array();
+  private _vars: string[] = new Array();
   private _amountOfPositivVars: number = 0;
   private onlyPositivars: string[] = new Array();
   private _usedForCombination = false;
@@ -16,7 +16,7 @@ export class Primimplikante {
 
     for(let varName of varNames) {
 
-      this.vars.push(varName);
+      this._vars.push(varName);
       this.onlyPositivars.push(StringMethods.replaceAll(varName,"~",""));
 
       if(!(varName.indexOf("~") >= 0)) this._amountOfPositivVars++;
@@ -28,7 +28,7 @@ export class Primimplikante {
 
   public toString() {
     let string= "";
-    for(let vars of this.vars) {
+    for(let vars of this._vars) {
       string += vars;
     }
 
@@ -42,6 +42,10 @@ export class Primimplikante {
     }
 
     return string;
+  }
+
+  get vars(): string[] {
+    return this._vars;
   }
 
   get decEquivalents(): number[] {
@@ -70,8 +74,8 @@ export class Primimplikante {
 
     if(!this.representSameVars(primimplikante2)) return null;
 
-    for(let varName of this.vars) {
-      for(let varName2 of primimplikante2.vars) {
+    for(let varName of this._vars) {
+      for(let varName2 of primimplikante2._vars) {
 
         if(this.sameVar(varName,varName2)) {
           if(varName2 == varName) {
@@ -107,7 +111,7 @@ export class Primimplikante {
   }
 
   private sortVars() {
-    this.vars = this.vars.sort((n1,n2) => {
+    this._vars = this._vars.sort((n1, n2) => {
       n1 = StringMethods.replaceAll(n1,"~","");
       n2 = StringMethods.replaceAll(n2,"~","");
       if (n1 > n2) {
@@ -126,7 +130,7 @@ export class Primimplikante {
     this.sortVars();
     this._decEquivalents[0] = 0;
     let exponent = 0;
-    for(let varName of this.vars) {
+    for(let varName of this._vars) {
       if(varName.indexOf("~") == -1) this._decEquivalents[0] += 2 ** exponent;
       exponent++;
     }

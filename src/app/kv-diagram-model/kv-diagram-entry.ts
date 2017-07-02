@@ -1,6 +1,9 @@
 import {ElementRef} from '@angular/core';
 import {KVDiagramSegment} from "./kvdiagram-segment";
 import {KVDiagram} from "./kvdiagram";
+import {Primimplikante} from "../qmc/primimplikante";
+import {Group} from "../qmc/group";
+import {GroupBox} from "../qmc/group-box";
 
 export class KvDiagramEntry {
   private _xPos:number;
@@ -11,6 +14,7 @@ export class KvDiagramEntry {
   private _mouseOn: boolean;
   private _ctx: CanvasRenderingContext2D;
   private _kvDiagram: KVDiagram;
+  private qmcGroups: GroupBox[] = new Array();
 
 
   constructor(xPos: number, yPos: number) {
@@ -107,7 +111,69 @@ export class KvDiagramEntry {
   clicked() {
     if(this.value == 1) this.value = 0;
     else this.value = 1;
-    this.draw();
     this.kvDiagram.updatedMatrixValues();
+  }
+
+  addGroupBox(groupBox: GroupBox) {
+    this.qmcGroups.push(groupBox);
+  }
+
+  startEnlargeGroupBoxes() {
+    for(let groupBox of this.qmcGroups) {
+      groupBox.point1.x = this.xPos;
+      groupBox.point2.x = this.xPos;
+      groupBox.point1.y = this.yPos;
+      groupBox.point2.y = this.yPos;
+      groupBox = this.enlargeGroupBoxes(groupBox);
+
+      groupBox.assignedGroup.underGroups.push(groupBox);
+    }
+  }
+
+  private enlargeGroupBoxes(groupBox: GroupBox): GroupBox {
+    let i = 0;
+    for(let entriesGroups of this.qmcGroups) {
+      if(entriesGroups.assignedGroup == groupBox.assignedGroup) {
+        i++;
+        break;
+      }
+    }
+    if(i==0) return groupBox;
+
+
+    if(this.combinationPartOfTag(groupBox.assignedGroup.primImplikant.vars)) {
+      if(this.xPos < groupBox.point1.x) groupBox.point1.x = this.xPos;
+      if(this.xPos > groupBox.point2.x) groupBox.point2.x = this.xPos;
+      if(this.yPos < groupBox.point1.y) groupBox.point1.y = this.yPos;
+      if(this.yPos > groupBox.point2.y) groupBox.point2.y = this.yPos;
+
+      let i = 0;
+      for(let entriesGroups of this.qmcGroups) {
+        if(entriesGroups.assignedGroup == groupBox.assignedGroup) {
+          this.qmcGroups.splice(i,1);
+        }
+        i++;
+      }
+
+      for(let dx = -1; dx <= 1; dx++) {
+        for(let dy = -1; dy <= 1; dy++) {
+          if((Math.abs(dy)+Math.abs(dx)) != 2) {
+            if (this.kvDiagram.isOnDiagram(this.xPos + dx, this.yPos + dy)) {
+              groupBox = this.kvDiagram.kvMatrix[this.xPos + dx][this.yPos + dy].enlargeGroupBoxes(groupBox);
+            }
+          }
+        }
+      }
+
+      return groupBox;
+
+    }
+    else {
+      return groupBox;
+    }
+  }
+
+  resetGroupBoxes() {
+    this.qmcGroups = new Array();
   }
 }

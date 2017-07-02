@@ -73,6 +73,7 @@ export class LogicInputComponent implements OnInit {
     qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
 
     this.qmcVisualizerCom.newQMC(qmc);
+    this.kvDiagramCom.newQMC(qmc);
   }
 
   private separateVariables(oldString: string) {
