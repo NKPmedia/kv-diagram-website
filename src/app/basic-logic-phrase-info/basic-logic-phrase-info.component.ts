@@ -13,6 +13,7 @@ export class BasicLogicPhraseInfoComponent implements OnInit {
   private _logicPhrase: LogicPhrase = new LogicPhrase(0, [], "");
   private _logicRootExpression: LogicRootExpression = new LogicRootExpression();
   private _logicRootExpressionInDF: LogicRootExpression = new LogicRootExpression();
+  logicRootExpressionInDNF: LogicRootExpression = new LogicRootExpression();
 
   constructor() { }
 

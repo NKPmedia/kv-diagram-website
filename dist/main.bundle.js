@@ -25,6 +25,7 @@ var BasicLogicPhraseInfoComponent = (function () {
         this._logicPhrase = new __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__["a" /* LogicPhrase */](0, [], "");
         this._logicRootExpression = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         this._logicRootExpressionInDF = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
+        this.logicRootExpressionInDNF = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
     }
     BasicLogicPhraseInfoComponent.prototype.ngOnInit = function () {
     };
@@ -1938,7 +1939,7 @@ var LogicInputComponent = (function () {
     LogicInputComponent.prototype.updateDNF = function (newDnf) {
         var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         logicRootExpression.parseLogicString(newDnf);
-        this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicRootExpression;
+        this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
         var qmc = new __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__["a" /* QMC */]();
         qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
         this.qmcVisualizerCom.newQMC(qmc);
@@ -1950,6 +1951,12 @@ var LogicInputComponent = (function () {
         for (var i = 0; i < oldString.length; i++) {
             var curr = oldString.charAt(i);
             if ((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([a-zA-Z]+)/)) {
+                result += "*" + curr;
+            }
+            else if ((curr.match(/([\(]+)/) != null || curr == "~") && last.match(/([a-zA-Z]+)/)) {
+                result += "*" + curr;
+            }
+            else if ((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([\)]+)/)) {
                 result += "*" + curr;
             }
             else {
@@ -2755,7 +2762,7 @@ module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n
 /***/ 241:
 /***/ (function(module, exports) {
 
-module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Phrase</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">VarNames</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
+module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Phrase</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">VarNames</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DF</th>\n            <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDNF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
 
 /***/ }),
 

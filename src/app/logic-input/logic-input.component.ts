@@ -67,7 +67,7 @@ export class LogicInputComponent implements OnInit {
   updateDNF(newDnf: string) {
     let logicRootExpression = new LogicRootExpression();
     logicRootExpression.parseLogicString(newDnf);
-    this.basicLogicPhraseInfoCom.logicRootExpressionInDF = logicRootExpression;
+    this.basicLogicPhraseInfoCom.logicRootExpressionInDNF = logicRootExpression;
 
     let qmc = new QMC();
     qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
@@ -83,7 +83,11 @@ export class LogicInputComponent implements OnInit {
       var curr = oldString.charAt(i);
       if ((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([a-zA-Z]+)/)) {
         result += "*" + curr;
-      } else {
+      } else if((curr.match(/([\(]+)/) != null || curr == "~") && last.match(/([a-zA-Z]+)/)) {
+        result += "*" + curr;
+      } else if((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([\)]+)/)) {
+        result += "*" + curr;
+      }else {
         result += curr;
       }
       last = curr;
