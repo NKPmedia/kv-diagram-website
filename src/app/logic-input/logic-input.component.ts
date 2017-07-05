@@ -22,7 +22,7 @@ export class LogicInputComponent implements OnInit {
   @Input()
   qmcVisualizerCom: QMCVisualizerComponent;
 
-  logicPhraseString = "a+b";
+  logicPhraseString = "(a+b)c";
   logicExtraVars = "c d";
   private logicPhrase: LogicPhrase;
   private logicDFPhrase: LogicPhrase;

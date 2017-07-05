@@ -806,6 +806,8 @@ var AppComponent = (function () {
         this.title = 'KV-Toolbox';
         this.welcomeMessage = "Das ist eine KV-Toolbox";
     }
+    AppComponent.prototype.ngAfterViewInit = function () {
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -1646,7 +1648,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LogicInputComponent = (function () {
     function LogicInputComponent(basicLogicPhraseParser) {
         this.basicLogicPhraseParser = basicLogicPhraseParser;
-        this.logicPhraseString = "a+b";
+        this.logicPhraseString = "(a+b)c";
         this.logicExtraVars = "c d";
     }
     LogicInputComponent.prototype.ngOnInit = function () {
@@ -2492,7 +2494,7 @@ var StringMethods = (function () {
 /***/ 240:
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\">\n      <app-logic-input\n        #logicInput\n        [kvDiagramCom]=\"kvDiagramCom\"\n        [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"\n        [qmcVisualizerCom]=\"qcmvisualizercom\">\n      </app-logic-input>\n    </div>\n    <div class=\"col-12 colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>\n  </div>\n</div>\n"
+module.exports = "\n<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\">\n      <app-logic-input\n        #logicInput\n        [kvDiagramCom]=\"kvDiagramCom\"\n        [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"\n        [qmcVisualizerCom]=\"qcmvisualizercom\">\n      </app-logic-input>\n    </div>\n    <div class=\"col-12 colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
