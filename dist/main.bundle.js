@@ -1,12 +1,13 @@
 webpackJsonp([1,4],{
 
-/***/ 122:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__qmc_qmc__ = __webpack_require__(56);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicLogicPhraseInfoComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -20,12 +21,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BasicLogicPhraseInfoComponent = (function () {
     function BasicLogicPhraseInfoComponent() {
         this._logicPhrase = new __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__["a" /* LogicPhrase */](0, [], "");
         this._logicRootExpression = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         this._logicRootExpressionInDF = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
         this.logicRootExpressionInDNF = new __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
+        this.qmc = new __WEBPACK_IMPORTED_MODULE_3__qmc_qmc__["a" /* QMC */]();
     }
     BasicLogicPhraseInfoComponent.prototype.ngOnInit = function () {
     };
@@ -74,7 +77,7 @@ BasicLogicPhraseInfoComponent = __decorate([
 
 /***/ }),
 
-/***/ 123:
+/***/ 124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -113,7 +116,7 @@ var Coordinate = (function () {
 
 /***/ }),
 
-/***/ 124:
+/***/ 125:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -217,7 +220,7 @@ var _a;
 
 /***/ }),
 
-/***/ 125:
+/***/ 126:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -271,7 +274,7 @@ var LogicAnd = (function (_super) {
 
 /***/ }),
 
-/***/ 126:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -312,7 +315,7 @@ var LogicBracketClose = (function (_super) {
 
 /***/ }),
 
-/***/ 127:
+/***/ 128:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -353,7 +356,7 @@ var LogicBracketOpen = (function (_super) {
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -408,7 +411,7 @@ var LogicNeg = (function (_super) {
 
 /***/ }),
 
-/***/ 129:
+/***/ 130:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -462,19 +465,19 @@ var LogicOr = (function (_super) {
 
 /***/ }),
 
-/***/ 130:
+/***/ 131:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_var__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_and__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_or__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logic_neg__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logic_bracket_close__ = __webpack_require__(126);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_bracket_open__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_and__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_or__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logic_neg__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logic_bracket_close__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_bracket_open__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shunting_yard__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__phrase_string_methods__ = __webpack_require__(24);
@@ -636,7 +639,7 @@ var LogicRootExpression = (function (_super) {
 
 /***/ }),
 
-/***/ 131:
+/***/ 132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -689,289 +692,12 @@ var LogicPhrase = (function () {
 
 /***/ }),
 
-/***/ 132:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__primimplikante__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMC; });
-
-
-
-var QMC = (function () {
-    function QMC() {
-        this._notCombinedPrimimplikanten = new Array();
-        this._restMatrix = new Array();
-        this._essentialPrimeImplicants = new Array();
-        this._neededDcEquivalents = new Array();
-        this._bestCoverage = new Array();
-        this._notEssentialDcEquivalents = Array();
-    }
-    Object.defineProperty(QMC.prototype, "simplificationTable", {
-        get: function () {
-            return this._simplificationTable;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "notEssentialDcEquivalents", {
-        get: function () {
-            return this._notEssentialDcEquivalents;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "notCombinedPrimimplikanten", {
-        get: function () {
-            return this._notCombinedPrimimplikanten;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "restMatrix", {
-        get: function () {
-            return this._restMatrix;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "essentialPrimeImplicants", {
-        get: function () {
-            return this._essentialPrimeImplicants;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "neededDcEquivalents", {
-        get: function () {
-            return this._neededDcEquivalents;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "bestCoverage", {
-        get: function () {
-            return this._bestCoverage;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(QMC.prototype, "existingDcEquivalebnts", {
-        get: function () {
-            return this._existingDcEquivalebnts;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    QMC.prototype.simplify = function (logicPhrase) {
-        this.initSimplificationTable(logicPhrase.varCount());
-        this.generatePrimimplikante(logicPhrase.phrase);
-        var round = 1;
-        while (true) {
-            var newColume = this.combinePrimimplikants(round, logicPhrase.varCount());
-            this.findNotCombinedPrimimplikantes(round - 1);
-            if (!newColume) {
-                this.simplificationTable.pop();
-                break;
-            }
-            round++;
-        }
-        this.findMinimalExpression();
-        return "";
-    };
-    QMC.prototype.generatePrimimplikante = function (phrase) {
-        phrase = __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__["a" /* StringMethods */].cleanUpDNF(phrase);
-        var conjunctionTerms = phrase.split("+");
-        for (var _i = 0, conjunctionTerms_1 = conjunctionTerms; _i < conjunctionTerms_1.length; _i++) {
-            var conjunctionTerm = conjunctionTerms_1[_i];
-            var varNames = conjunctionTerm.split("*");
-            var primiplikant = new __WEBPACK_IMPORTED_MODULE_0__primimplikante__["a" /* Primimplikante */](varNames);
-            var amountPositivVars = primiplikant.amountOfPositivVars;
-            this._simplificationTable[0][amountPositivVars].push(primiplikant);
-        }
-    };
-    QMC.prototype.initSimplificationTable = function (amountVars) {
-        this._simplificationTable = new Array();
-        this._simplificationTable[0] = new Array();
-        for (var i = 0; i <= amountVars; i++) {
-            this._simplificationTable[0][i] = new Array();
-        }
-    };
-    /**
-     *
-     * @param round
-     * @return returns true if it created a new colume in the simplificationTable
-     */
-    QMC.prototype.combinePrimimplikants = function (round, amountVars) {
-        this._simplificationTable[round] = new Array();
-        var newColume = false;
-        for (var i = 0; i <= amountVars - round; i++) {
-            this._simplificationTable[round][i] = new Array();
-        }
-        for (var amountClassIndex = 0; amountClassIndex < this._simplificationTable[round - 1].length; amountClassIndex++) {
-            for (var _i = 0, _a = this._simplificationTable[round - 1][amountClassIndex]; _i < _a.length; _i++) {
-                var primimplikante = _a[_i];
-                if (typeof this._simplificationTable[round - 1][amountClassIndex + 1] !== "undefined") {
-                    for (var _b = 0, _c = this._simplificationTable[round - 1][amountClassIndex + 1]; _b < _c.length; _b++) {
-                        var primimplikante2 = _c[_b];
-                        var newPrimimplikante = primimplikante.combine(primimplikante2);
-                        if (newPrimimplikante != null) {
-                            newColume = true;
-                            if (!this.allreadyExist(newPrimimplikante, this._simplificationTable[round][amountClassIndex])) {
-                                this._simplificationTable[round][amountClassIndex].push(newPrimimplikante);
-                            }
-                            primimplikante2.usedForCombination = true;
-                            primimplikante.usedForCombination = true;
-                        }
-                    }
-                }
-            }
-        }
-        return newColume;
-    };
-    QMC.prototype.findNotCombinedPrimimplikantes = function (round) {
-        for (var _i = 0, _a = this._simplificationTable[round]; _i < _a.length; _i++) {
-            var amountClass = _a[_i];
-            for (var _b = 0, amountClass_1 = amountClass; _b < amountClass_1.length; _b++) {
-                var primim = amountClass_1[_b];
-                if (!primim.usedForCombination)
-                    this._notCombinedPrimimplikanten.push(primim);
-            }
-        }
-    };
-    QMC.prototype.findMinimalExpression = function () {
-        this.generateRestMatrix();
-        this.findEssentialPrimeImplicants();
-        this.actualPrimeImplicantCombination = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](this._essentialPrimeImplicants);
-        /**
-         * lets start to solve the NP-complete problem XD
-         * calculate slave
-         */
-        this._bestCoverage = this.findBestCovareg(this._neededDcEquivalents, this._essentialPrimeImplicants, __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](this._essentialPrimeImplicants));
-    };
-    QMC.prototype.generateRestMatrix = function () {
-        this.existingDcEquivalents();
-        var i = 0;
-        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
-            var primeImplicant = _a[_i];
-            this._restMatrix[i] = new Array();
-            for (var _b = 0, _c = this._existingDcEquivalebnts; _b < _c.length; _b++) {
-                var dcEquivalent = _c[_b];
-                if (primeImplicant.decEquivalents.indexOf(dcEquivalent) != -1)
-                    this._restMatrix[i][dcEquivalent] = "x";
-                else
-                    this._restMatrix[i][dcEquivalent] = " ";
-            }
-            i++;
-        }
-    };
-    QMC.prototype.findEssentialPrimeImplicants = function () {
-        for (var _i = 0, _a = this._existingDcEquivalebnts; _i < _a.length; _i++) {
-            var dcEquivalent = _a[_i];
-            var amountOfCovareg = 0;
-            var lastCoverPrimeImplicant = 0;
-            var i = void 0;
-            for (i = 0; i < this._notCombinedPrimimplikanten.length; i++) {
-                if (this._restMatrix[i][dcEquivalent] == "x") {
-                    amountOfCovareg++;
-                    lastCoverPrimeImplicant = i;
-                }
-            }
-            if (amountOfCovareg == 1) {
-                if (this.essentialPrimeImplicants.indexOf(this._notCombinedPrimimplikanten[lastCoverPrimeImplicant]) == -1) {
-                    this._essentialPrimeImplicants.push(this._notCombinedPrimimplikanten[lastCoverPrimeImplicant]);
-                }
-            }
-            else {
-                this._neededDcEquivalents.push(dcEquivalent);
-                this._notEssentialDcEquivalents.push(dcEquivalent);
-            }
-        }
-        //Delete all covered dcEquivalents
-        for (var _b = 0, _c = this._essentialPrimeImplicants; _b < _c.length; _b++) {
-            var implicant = _c[_b];
-            for (var _d = 0, _e = implicant.decEquivalents; _d < _e.length; _d++) {
-                var dcEquivalent = _e[_d];
-                var index = this._neededDcEquivalents.indexOf(dcEquivalent, 0);
-                if (index > -1) {
-                    this._neededDcEquivalents.splice(index, 1);
-                }
-            }
-        }
-    };
-    QMC.prototype.existingDcEquivalents = function () {
-        this._existingDcEquivalebnts = new Array();
-        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
-            var primeImplicant = _a[_i];
-            for (var _b = 0, _c = primeImplicant.decEquivalents; _b < _c.length; _b++) {
-                var dcEquivalent = _c[_b];
-                if (this._existingDcEquivalebnts.indexOf(dcEquivalent) == -1)
-                    this._existingDcEquivalebnts.push(dcEquivalent);
-            }
-        }
-        this._existingDcEquivalebnts.sort(function (n1, n2) {
-            if (n1 > n2) {
-                return 1;
-            }
-            if (n1 < n2) {
-                return -1;
-            }
-            return 0;
-        });
-    };
-    QMC.prototype.findBestCovareg = function (neededDcEquivalents, usedPrimImplicants, any) {
-        var dcEquivalentToCover = neededDcEquivalents.pop();
-        neededDcEquivalents.push(dcEquivalentToCover);
-        var amountOfPrimeImplicants = 99999999999999999999;
-        if (neededDcEquivalents.length == 0)
-            return usedPrimImplicants;
-        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
-            var onePrimeImplicant = _a[_i];
-            if (onePrimeImplicant.decEquivalents.indexOf(dcEquivalentToCover) != -1) {
-                var newNeededDcEquivalents = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](neededDcEquivalents);
-                for (var _b = 0, _c = onePrimeImplicant.decEquivalents; _b < _c.length; _b++) {
-                    var dcEquivalent = _c[_b];
-                    var index = newNeededDcEquivalents.indexOf(dcEquivalent, 0);
-                    if (index > -1) {
-                        newNeededDcEquivalents.splice(index, 1);
-                    }
-                }
-                var newNeededPrimImplicants = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](usedPrimImplicants);
-                newNeededPrimImplicants.push(onePrimeImplicant);
-                var acutalUsedPrimImplicants = this.findBestCovareg(newNeededDcEquivalents, newNeededPrimImplicants, any);
-                if (amountOfPrimeImplicants >= acutalUsedPrimImplicants.length) {
-                    amountOfPrimeImplicants = acutalUsedPrimImplicants.length;
-                    usedPrimImplicants = acutalUsedPrimImplicants;
-                }
-            }
-        }
-        return usedPrimImplicants;
-    };
-    QMC.prototype.allreadyExist = function (newPrimimplikante, param2) {
-        for (var _i = 0, param2_1 = param2; _i < param2_1.length; _i++) {
-            var prim = param2_1[_i];
-            if (prim.toString() == newPrimimplikante.toString()) {
-                return true;
-            }
-        }
-        return false;
-    };
-    return QMC;
-}());
-
-//# sourceMappingURL=qmc.js.map
-
-/***/ }),
-
 /***/ 133:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__qmc_qmc__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__qmc_qmc__ = __webpack_require__(56);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMCVisualizerComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1106,8 +832,8 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(165);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_input_logic_input_component__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navbar_navbar_component__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__ = __webpack_require__(125);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__(133);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1665,7 +1391,7 @@ var AbstractLogicExpression = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__coordinate__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__coordinate__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__qmc_group__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__qmc_group_box__ = __webpack_require__(176);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KVDiagram; });
@@ -1892,12 +1618,12 @@ var KVDiagram = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__(133);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicInputComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1942,6 +1668,7 @@ var LogicInputComponent = (function () {
         var qmc = new __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__["a" /* QMC */]();
         qmc.simplify(this.basicLogicPhraseParser.parse(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix(), this.logicExtraVars));
         this.qmcVisualizerCom.newQMC(qmc);
+        this.basicLogicPhraseInfoCom.qmc = qmc;
     };
     LogicInputComponent.prototype.updateDNF = function (newDnf) {
         var logicRootExpression = new __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__["a" /* LogicRootExpression */]();
@@ -2009,9 +1736,9 @@ var _a, _b, _c, _d;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_or__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_and__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_neg__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_or__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_and__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_neg__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_var__ = __webpack_require__(55);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicTreeUtils; });
 
@@ -2117,8 +1844,8 @@ var LogicTreeUtils = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_var__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_bracket_open__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_bracket_close__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_bracket_open__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_bracket_close__ = __webpack_require__(127);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShuntingYard; });
 
 
@@ -2215,7 +1942,7 @@ NavbarComponent = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_phrase__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_phrase__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__string_methods__ = __webpack_require__(24);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicLogicPhraseParser; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2297,7 +2024,7 @@ BasicLogicPhraseParser = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_model_coordinate__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_model_coordinate__ = __webpack_require__(124);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupBox; });
 
 var GroupBox = (function () {
@@ -2765,14 +2492,14 @@ var StringMethods = (function () {
 /***/ 240:
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col colMargin\">\n      <app-logic-input\n        #logicInput\n        [kvDiagramCom]=\"kvDiagramCom\"\n        [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"\n        [qmcVisualizerCom]=\"qcmvisualizercom\">\n      </app-logic-input>\n    </div>\n    <div class=\"col colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>\n  </div>\n</div>\n"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\">\n      <app-logic-input\n        #logicInput\n        [kvDiagramCom]=\"kvDiagramCom\"\n        [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"\n        [qmcVisualizerCom]=\"qcmvisualizercom\">\n      </app-logic-input>\n    </div>\n    <div class=\"col-12 colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 241:
 /***/ (function(module, exports) {
 
-module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Phrase</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">VarNames</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DF</th>\n            <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDNF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
+module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Ausdruck</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Variablen Namen</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DF</th>\n            <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Vereinfachte DF</th>\n            <td>{{qmc.getMinmalFormAsString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDNF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -2786,7 +2513,7 @@ module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 cl
 /***/ 243:
 /***/ (function(module, exports) {
 
-module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Logik input</h4>\n      <p class=\"card-text\">Trage hier die logischen Verknüpfungen ein</p>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Logik Phrase</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicPhraseString\" type=\"textarea\" value=\"\" id=\"logicPhrase\" >\n          </textarea>\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Zusätzliche Variablen</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicExtraVars\" type=\"textarea\" value=\"\" id=\"logicExtraVars\">\n          </textarea>\n        </div>\n\n        <div class=\"col-12\">\n          Hier kannst du zusätzliche Variablen angeben, falls der Logische Ausdruck nicht in der DNF sondern nur in  der DF ist.\n          (Trenne über \" \")\n        </div>\n\n      </div>\n      <div class=\"row\">\n        <br>\n        <div class=\"col-4\">\n          <button type=\"button\" (click)=\"parseLogicPhrase()\"  class=\"btn btn-primary\">Parse</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Logische Eingabe</h4>\n      <p class=\"card-text\">Trage hier die logischen Verknüpfungen ein</p>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Logischer Ausdruck</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicPhraseString\" type=\"textarea\" value=\"\" id=\"logicPhrase\" >\n          </textarea>\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Zusätzliche Variablen</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicExtraVars\" type=\"textarea\" value=\"\" id=\"logicExtraVars\">\n          </textarea>\n        </div>\n\n        <div class=\"col-12\">\n          Hier kannst du zusätzliche Variablen angeben, falls der Logische Ausdruck nicht in der DNF sondern nur in  der DF ist.\n          (Trenne über \" \")\n        </div>\n\n      </div>\n      <div class=\"row\">\n        <br>\n        <div class=\"col-4\">\n          <button type=\"button\" (click)=\"parseLogicPhrase()\"  class=\"btn btn-primary\">Parse</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -2800,7 +2527,7 @@ module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-light bg-faded
 /***/ 245:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">QMC</h4>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Vereinfachungstabelle</h5>\n      <ng-container *ngFor= \"let table of qmc.simplificationTable; let myIndex = index\">\n        <div class=\"col-md-4\">\n          <table class=\"table table-bordered\">\n            <thead>\n              <tr scope=\"row\">\n                <th>Group</th>\n                <th>DCEq.</th>\n                <th>Prim.</th>\n                <th>Used</th>\n              </tr>\n            </thead>\n\n            <tbody>\n              <ng-container *ngFor= \"let group of table let groupIndex = index\">\n                <ng-container *ngFor= \"let primeImplicant of group\">\n                  <ng-container></ng-container>\n                  <tr class=\"{{getTableBackground(groupIndex)}}\" scope=\"row\">\n                    <th>\n                      {{groupIndex}}\n                    </th>\n                    <td>\n                      {{primeImplicant.getDcEquivalentsString()}}\n                    </td>\n                    <td>\n                      {{primeImplicant.toString()}}\n                    </td>\n                    <td>\n                      <ng-container *ngIf=\"primeImplicant._usedForCombination\">\n                        &#10004;\n                      </ng-container>\n                      <ng-container *ngIf=\"!primeImplicant._usedForCombination\">\n                        &#10008;\n                      </ng-container>\n                    </td>\n                  </tr>\n                </ng-container>\n              </ng-container>\n            </tbody>\n\n          </table>\n        </div>\n\n      </ng-container>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Auswahl der wesentlichen Primimplikanten</h5>\n      <div class=\"col-md-4\">\n        <table class=\"table table-bordered\">\n          <thead>\n          <tr scope=\"row\">\n            <th>Prim/DCEq</th>\n            <ng-container *ngFor=\"let dcEq of qmc.existingDcEquivalebnts\">\n              <th>{{dcEq}}</th>\n            </ng-container>\n          </tr>\n          </thead>\n\n          <tbody>\n            <ng-container *ngFor=\"let prim of qmc.restMatrix; let indexI = index\">\n                <tr scope=\"row\">\n                  <td class=\"{{getEssentialPrimBackground(indexI)}}\">\n                    {{qmc.notCombinedPrimimplikanten[indexI]}}\n                  </td>\n                  <ng-container *ngFor=\"let dcEq of prim; let dcEqNumber = index\">\n                    <ng-container *ngIf=\"dcEq\">\n                      <td class=\"{{getEssentialPrimDcBackground(dcEqNumber)}}\">\n                        {{dcEq}}\n                      </td>\n                    </ng-container>\n\n                  </ng-container>\n                </tr>\n            </ng-container>\n          </tbody>\n\n        </table>\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Minimale Form</h5>\n      <div class=\"col-md-4\">\n        <ng-container *ngFor=\"let prim of qmc.bestCoverage; let indexI = index\">\n          {{prim.toString()}} +\n        </ng-container>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">QMC</h4>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Vereinfachungstabelle</h5>\n      <ng-container *ngFor= \"let table of qmc.simplificationTable; let myIndex = index\">\n        <div class=\"col-md-4\">\n          <table class=\"table table-bordered\">\n            <thead>\n              <tr scope=\"row\">\n                <th>Group</th>\n                <th>DCEq.</th>\n                <th>Prim.</th>\n                <th>Used</th>\n              </tr>\n            </thead>\n\n            <tbody>\n              <ng-container *ngFor= \"let group of table let groupIndex = index\">\n                <ng-container *ngFor= \"let primeImplicant of group\">\n                  <ng-container></ng-container>\n                  <tr class=\"{{getTableBackground(groupIndex)}}\" scope=\"row\">\n                    <th>\n                      {{groupIndex}}\n                    </th>\n                    <td>\n                      {{primeImplicant.getDcEquivalentsString()}}\n                    </td>\n                    <td>\n                      {{primeImplicant.toString()}}\n                    </td>\n                    <td>\n                      <ng-container *ngIf=\"primeImplicant._usedForCombination\">\n                        &#10004;\n                      </ng-container>\n                      <ng-container *ngIf=\"!primeImplicant._usedForCombination\">\n                        &#10008;\n                      </ng-container>\n                    </td>\n                  </tr>\n                </ng-container>\n              </ng-container>\n            </tbody>\n\n          </table>\n        </div>\n\n      </ng-container>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Auswahl der wesentlichen Primimplikanten</h5>\n      <div class=\"col-md-4\">\n        <table class=\"table table-bordered\">\n          <thead>\n          <tr scope=\"row\">\n            <th>Prim/DCEq</th>\n            <ng-container *ngFor=\"let dcEq of qmc.existingDcEquivalebnts\">\n              <th>{{dcEq}}</th>\n            </ng-container>\n          </tr>\n          </thead>\n\n          <tbody>\n            <ng-container *ngFor=\"let prim of qmc.restMatrix; let indexI = index\">\n                <tr scope=\"row\">\n                  <td class=\"{{getEssentialPrimBackground(indexI)}}\">\n                    {{qmc.notCombinedPrimimplikanten[indexI]}}\n                  </td>\n                  <ng-container *ngFor=\"let dcEq of prim; let dcEqNumber = index\">\n                    <ng-container *ngIf=\"dcEq\">\n                      <td class=\"{{getEssentialPrimDcBackground(dcEqNumber)}}\">\n                        {{dcEq}}\n                      </td>\n                    </ng-container>\n\n                  </ng-container>\n                </tr>\n            </ng-container>\n          </tbody>\n\n        </table>\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Minimale Form</h5>\n      <div class=\"col-md-4\">\n        {{this.qmc.getMinmalFormAsString()}}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2872,6 +2599,292 @@ var LogicVar = (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__["a" /* AbstractLogicExpression */]));
 
 //# sourceMappingURL=logic-var.js.map
+
+/***/ }),
+
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__primimplikante__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMC; });
+
+
+
+var QMC = (function () {
+    function QMC() {
+        this._notCombinedPrimimplikanten = new Array();
+        this._restMatrix = new Array();
+        this._essentialPrimeImplicants = new Array();
+        this._neededDcEquivalents = new Array();
+        this._bestCoverage = new Array();
+        this._notEssentialDcEquivalents = Array();
+    }
+    Object.defineProperty(QMC.prototype, "simplificationTable", {
+        get: function () {
+            return this._simplificationTable;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "notEssentialDcEquivalents", {
+        get: function () {
+            return this._notEssentialDcEquivalents;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "notCombinedPrimimplikanten", {
+        get: function () {
+            return this._notCombinedPrimimplikanten;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "restMatrix", {
+        get: function () {
+            return this._restMatrix;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "essentialPrimeImplicants", {
+        get: function () {
+            return this._essentialPrimeImplicants;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "neededDcEquivalents", {
+        get: function () {
+            return this._neededDcEquivalents;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "bestCoverage", {
+        get: function () {
+            return this._bestCoverage;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(QMC.prototype, "existingDcEquivalebnts", {
+        get: function () {
+            return this._existingDcEquivalebnts;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    QMC.prototype.simplify = function (logicPhrase) {
+        this.initSimplificationTable(logicPhrase.varCount());
+        this.generatePrimimplikante(logicPhrase.phrase);
+        var round = 1;
+        while (true) {
+            var newColume = this.combinePrimimplikants(round, logicPhrase.varCount());
+            this.findNotCombinedPrimimplikantes(round - 1);
+            if (!newColume) {
+                this.simplificationTable.pop();
+                break;
+            }
+            round++;
+        }
+        this.findMinimalExpression();
+        return "";
+    };
+    QMC.prototype.generatePrimimplikante = function (phrase) {
+        phrase = __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__["a" /* StringMethods */].cleanUpDNF(phrase);
+        var conjunctionTerms = phrase.split("+");
+        for (var _i = 0, conjunctionTerms_1 = conjunctionTerms; _i < conjunctionTerms_1.length; _i++) {
+            var conjunctionTerm = conjunctionTerms_1[_i];
+            var varNames = conjunctionTerm.split("*");
+            var primiplikant = new __WEBPACK_IMPORTED_MODULE_0__primimplikante__["a" /* Primimplikante */](varNames);
+            var amountPositivVars = primiplikant.amountOfPositivVars;
+            this._simplificationTable[0][amountPositivVars].push(primiplikant);
+        }
+    };
+    QMC.prototype.initSimplificationTable = function (amountVars) {
+        this._simplificationTable = new Array();
+        this._simplificationTable[0] = new Array();
+        for (var i = 0; i <= amountVars; i++) {
+            this._simplificationTable[0][i] = new Array();
+        }
+    };
+    /**
+     *
+     * @param round
+     * @return returns true if it created a new colume in the simplificationTable
+     */
+    QMC.prototype.combinePrimimplikants = function (round, amountVars) {
+        this._simplificationTable[round] = new Array();
+        var newColume = false;
+        for (var i = 0; i <= amountVars - round; i++) {
+            this._simplificationTable[round][i] = new Array();
+        }
+        for (var amountClassIndex = 0; amountClassIndex < this._simplificationTable[round - 1].length; amountClassIndex++) {
+            for (var _i = 0, _a = this._simplificationTable[round - 1][amountClassIndex]; _i < _a.length; _i++) {
+                var primimplikante = _a[_i];
+                if (typeof this._simplificationTable[round - 1][amountClassIndex + 1] !== "undefined") {
+                    for (var _b = 0, _c = this._simplificationTable[round - 1][amountClassIndex + 1]; _b < _c.length; _b++) {
+                        var primimplikante2 = _c[_b];
+                        var newPrimimplikante = primimplikante.combine(primimplikante2);
+                        if (newPrimimplikante != null) {
+                            newColume = true;
+                            if (!this.allreadyExist(newPrimimplikante, this._simplificationTable[round][amountClassIndex])) {
+                                this._simplificationTable[round][amountClassIndex].push(newPrimimplikante);
+                            }
+                            primimplikante2.usedForCombination = true;
+                            primimplikante.usedForCombination = true;
+                        }
+                    }
+                }
+            }
+        }
+        return newColume;
+    };
+    QMC.prototype.findNotCombinedPrimimplikantes = function (round) {
+        for (var _i = 0, _a = this._simplificationTable[round]; _i < _a.length; _i++) {
+            var amountClass = _a[_i];
+            for (var _b = 0, amountClass_1 = amountClass; _b < amountClass_1.length; _b++) {
+                var primim = amountClass_1[_b];
+                if (!primim.usedForCombination)
+                    this._notCombinedPrimimplikanten.push(primim);
+            }
+        }
+    };
+    QMC.prototype.findMinimalExpression = function () {
+        this.generateRestMatrix();
+        this.findEssentialPrimeImplicants();
+        this.actualPrimeImplicantCombination = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](this._essentialPrimeImplicants);
+        /**
+         * lets start to solve the NP-complete problem XD
+         * calculate slave
+         */
+        this._bestCoverage = this.findBestCovareg(this._neededDcEquivalents, this._essentialPrimeImplicants, __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](this._essentialPrimeImplicants));
+    };
+    QMC.prototype.generateRestMatrix = function () {
+        this.existingDcEquivalents();
+        var i = 0;
+        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
+            var primeImplicant = _a[_i];
+            this._restMatrix[i] = new Array();
+            for (var _b = 0, _c = this._existingDcEquivalebnts; _b < _c.length; _b++) {
+                var dcEquivalent = _c[_b];
+                if (primeImplicant.decEquivalents.indexOf(dcEquivalent) != -1)
+                    this._restMatrix[i][dcEquivalent] = "x";
+                else
+                    this._restMatrix[i][dcEquivalent] = " ";
+            }
+            i++;
+        }
+    };
+    QMC.prototype.findEssentialPrimeImplicants = function () {
+        for (var _i = 0, _a = this._existingDcEquivalebnts; _i < _a.length; _i++) {
+            var dcEquivalent = _a[_i];
+            var amountOfCovareg = 0;
+            var lastCoverPrimeImplicant = 0;
+            var i = void 0;
+            for (i = 0; i < this._notCombinedPrimimplikanten.length; i++) {
+                if (this._restMatrix[i][dcEquivalent] == "x") {
+                    amountOfCovareg++;
+                    lastCoverPrimeImplicant = i;
+                }
+            }
+            if (amountOfCovareg == 1) {
+                if (this.essentialPrimeImplicants.indexOf(this._notCombinedPrimimplikanten[lastCoverPrimeImplicant]) == -1) {
+                    this._essentialPrimeImplicants.push(this._notCombinedPrimimplikanten[lastCoverPrimeImplicant]);
+                }
+            }
+            else {
+                this._neededDcEquivalents.push(dcEquivalent);
+                this._notEssentialDcEquivalents.push(dcEquivalent);
+            }
+        }
+        //Delete all covered dcEquivalents
+        for (var _b = 0, _c = this._essentialPrimeImplicants; _b < _c.length; _b++) {
+            var implicant = _c[_b];
+            for (var _d = 0, _e = implicant.decEquivalents; _d < _e.length; _d++) {
+                var dcEquivalent = _e[_d];
+                var index = this._neededDcEquivalents.indexOf(dcEquivalent, 0);
+                if (index > -1) {
+                    this._neededDcEquivalents.splice(index, 1);
+                }
+            }
+        }
+    };
+    QMC.prototype.existingDcEquivalents = function () {
+        this._existingDcEquivalebnts = new Array();
+        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
+            var primeImplicant = _a[_i];
+            for (var _b = 0, _c = primeImplicant.decEquivalents; _b < _c.length; _b++) {
+                var dcEquivalent = _c[_b];
+                if (this._existingDcEquivalebnts.indexOf(dcEquivalent) == -1)
+                    this._existingDcEquivalebnts.push(dcEquivalent);
+            }
+        }
+        this._existingDcEquivalebnts.sort(function (n1, n2) {
+            if (n1 > n2) {
+                return 1;
+            }
+            if (n1 < n2) {
+                return -1;
+            }
+            return 0;
+        });
+    };
+    QMC.prototype.findBestCovareg = function (neededDcEquivalents, usedPrimImplicants, any) {
+        var dcEquivalentToCover = neededDcEquivalents.pop();
+        neededDcEquivalents.push(dcEquivalentToCover);
+        var amountOfPrimeImplicants = 99999999999999999999;
+        if (neededDcEquivalents.length == 0)
+            return usedPrimImplicants;
+        for (var _i = 0, _a = this._notCombinedPrimimplikanten; _i < _a.length; _i++) {
+            var onePrimeImplicant = _a[_i];
+            if (onePrimeImplicant.decEquivalents.indexOf(dcEquivalentToCover) != -1) {
+                var newNeededDcEquivalents = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](neededDcEquivalents);
+                for (var _b = 0, _c = onePrimeImplicant.decEquivalents; _b < _c.length; _b++) {
+                    var dcEquivalent = _c[_b];
+                    var index = newNeededDcEquivalents.indexOf(dcEquivalent, 0);
+                    if (index > -1) {
+                        newNeededDcEquivalents.splice(index, 1);
+                    }
+                }
+                var newNeededPrimImplicants = __WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](usedPrimImplicants);
+                newNeededPrimImplicants.push(onePrimeImplicant);
+                var acutalUsedPrimImplicants = this.findBestCovareg(newNeededDcEquivalents, newNeededPrimImplicants, any);
+                if (amountOfPrimeImplicants >= acutalUsedPrimImplicants.length) {
+                    amountOfPrimeImplicants = acutalUsedPrimImplicants.length;
+                    usedPrimImplicants = acutalUsedPrimImplicants;
+                }
+            }
+        }
+        return usedPrimImplicants;
+    };
+    QMC.prototype.allreadyExist = function (newPrimimplikante, param2) {
+        for (var _i = 0, param2_1 = param2; _i < param2_1.length; _i++) {
+            var prim = param2_1[_i];
+            if (prim.toString() == newPrimimplikante.toString()) {
+                return true;
+            }
+        }
+        return false;
+    };
+    QMC.prototype.getMinmalFormAsString = function () {
+        var string = "";
+        for (var _i = 0, _a = this.bestCoverage; _i < _a.length; _i++) {
+            var prim = _a[_i];
+            string += " " + prim.toString() + " +";
+        }
+        string = string.substring(0, string.length - 1);
+        return string;
+    };
+    return QMC;
+}());
+
+//# sourceMappingURL=qmc.js.map
 
 /***/ })
 

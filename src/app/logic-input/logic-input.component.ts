@@ -61,6 +61,8 @@ export class LogicInputComponent implements OnInit {
     qmc.simplify(this.basicLogicPhraseParser.parse(this.kvDiagramCom.kvDiagram.generateDNFOutOfMatrix(), this.logicExtraVars));
 
     this.qmcVisualizerCom.newQMC(qmc);
+
+    this.basicLogicPhraseInfoCom.qmc = qmc;
   }
 
 

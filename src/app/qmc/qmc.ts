@@ -255,4 +255,15 @@ export class QMC {
     }
     return false;
   }
+
+  getMinmalFormAsString() {
+    let string = "";
+    for(let prim of this.bestCoverage) {
+      string += " "+prim.toString()+" +";
+    }
+
+    string = string.substring(0, string.length - 1);
+
+    return string;
+  }
 }

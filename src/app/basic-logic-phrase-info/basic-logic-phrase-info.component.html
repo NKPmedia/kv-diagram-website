@@ -11,7 +11,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Phrase</th>
+            <th scope="row">Ausdruck</th>
             <td>{{logicPhrase.phrase}}</td>
           </tr>
           <tr>
@@ -19,12 +19,16 @@
             <td>{{logicPhrase.lengh}}</td>
           </tr>
           <tr>
-            <th scope="row">VarNames</th>
+            <th scope="row">Variablen Namen</th>
             <td>{{logicPhrase.varNames.toString()}}</td>
           </tr>
           <tr>
             <th scope="row">DF</th>
             <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Vereinfachte DF</th>
+            <td>{{qmc.getMinmalFormAsString()}}</td>
           </tr>
           <tr>
             <th scope="row">DNF</th>

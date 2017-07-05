@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LogicPhrase} from "../phrase/logic-phrase";
 import {LogicRootExpression} from "../logicExpression/logic-root-expression";
 import {StringMethods} from "../phrase/string-methods";
+import {QMC} from "../qmc/qmc";
 
 @Component({
   selector: 'app-basic-logic-phrase-info',
@@ -14,6 +15,7 @@ export class BasicLogicPhraseInfoComponent implements OnInit {
   private _logicRootExpression: LogicRootExpression = new LogicRootExpression();
   private _logicRootExpressionInDF: LogicRootExpression = new LogicRootExpression();
   logicRootExpressionInDNF: LogicRootExpression = new LogicRootExpression();
+  qmc: QMC = new QMC();
 
   constructor() { }
 
