@@ -87,6 +87,8 @@ export class LogicInputComponent implements OnInit {
         result += "*" + curr;
       } else if((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([\)]+)/)) {
         result += "*" + curr;
+      }else if((curr.match(/([\(]+)/) != null || curr == "~") && last.match(/([\)]+)/)) {
+        result += "*" + curr;
       }else {
         result += curr;
       }

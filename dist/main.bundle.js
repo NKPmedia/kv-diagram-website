@@ -620,7 +620,14 @@ var LogicRootExpression = (function (_super) {
     LogicRootExpression.prototype.toDF = function () {
         var logicTreeUtils = new __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__["a" /* LogicTreeUtils */]();
         this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicNegs(this.logicChildExpressions[0]);
+        var before = this.logicChildExpressions[0].phraseToString();
         this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicAnd(this.logicChildExpressions[0]);
+        var after = this.logicChildExpressions[0].phraseToString();
+        while (before != after) {
+            before = after;
+            this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicAnd(this.logicChildExpressions[0]);
+            after = this.logicChildExpressions[0].phraseToString();
+        }
     };
     return LogicRootExpression;
 }(__WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__["a" /* AbstractLogicExpression */]));
@@ -1957,6 +1964,9 @@ var LogicInputComponent = (function () {
                 result += "*" + curr;
             }
             else if ((curr.match(/([a-zA-Z]+)/) != null || curr == "~") && last.match(/([\)]+)/)) {
+                result += "*" + curr;
+            }
+            else if ((curr.match(/([\(]+)/) != null || curr == "~") && last.match(/([\)]+)/)) {
                 result += "*" + curr;
             }
             else {

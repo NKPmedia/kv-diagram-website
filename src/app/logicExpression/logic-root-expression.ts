@@ -153,6 +153,13 @@ export class LogicRootExpression extends AbstractLogicExpression {
     let logicTreeUtils = new LogicTreeUtils();
 
     this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicNegs(this.logicChildExpressions[0]);
+    let before = this.logicChildExpressions[0].phraseToString();
     this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicAnd(this.logicChildExpressions[0]);
+    let after = this.logicChildExpressions[0].phraseToString();
+    while (before != after) {
+      before = after;
+      this.logicChildExpressions[0] = logicTreeUtils.dissolveLogicAnd(this.logicChildExpressions[0]);
+      after = this.logicChildExpressions[0].phraseToString();
+    }
   }
 }
