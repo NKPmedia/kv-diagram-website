@@ -1680,6 +1680,7 @@ var LogicInputComponent = (function () {
         qmc.simplify(this.basicLogicPhraseParser.parse(newDnf, this.logicExtraVars));
         this.qmcVisualizerCom.newQMC(qmc);
         this.kvDiagramCom.newQMC(qmc);
+        this.basicLogicPhraseInfoCom.qmc = qmc;
     };
     LogicInputComponent.prototype.separateVariables = function (oldString) {
         var result = "";
