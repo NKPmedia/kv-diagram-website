@@ -80,6 +80,35 @@ export class LogicTreeUtils {
           actualLogicExpression.add(and1);
           actualLogicExpression.add(and2);
         }
+        else if(var1 instanceof LogicOr && var2 instanceof LogicNeg) {
+          actualLogicExpression = new LogicOr();
+
+          let and1 = new LogicAnd();
+          and1.add(var2);
+          and1.add(var1.logicChildExpressions[0]);
+
+          let and2 = new LogicAnd();
+          and2.add(var2);
+          and2.add(var1.logicChildExpressions[1]);
+
+          actualLogicExpression.add(and1);
+          actualLogicExpression.add(and2);
+        }
+        else if(var2 instanceof LogicOr && var1 instanceof LogicNeg) {
+          actualLogicExpression = new LogicOr();
+
+          let and1 = new LogicAnd();
+          and1.add(var1);
+          and1.add(var2.logicChildExpressions[0]);
+
+          let and2 = new LogicAnd();
+          and2.add(var1);
+          and2.add(var2.logicChildExpressions[1]);
+
+          actualLogicExpression.add(and1);
+          actualLogicExpression.add(and2);
+        }
+
       }
 
       for(let i = 0; i < actualLogicExpression.logicChildExpressions.length; i++) {
