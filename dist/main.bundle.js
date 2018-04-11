@@ -1,6 +1,6 @@
 webpackJsonp(["main"],{
 
-/***/ "../../../../../src/$$_lazy_route_resource lazy recursive":
+/***/ "./src/$$_lazy_route_resource lazy recursive":
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,41 +13,30 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy recursive";
+webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "../../../../../src/app/app.component.css":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/app/app.component.css":
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".colMargin{\n  margin-bottom: 15px;\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = ".colMargin{\n  margin-bottom: 15px;\n}\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/app.component.html":
+/***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "\n<app-navbar></app-navbar>\n<div class=\"container\">\n  <br>\n  <h1>\n    {{welcomeMessage}}\n  </h1>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\">\n      <app-logic-input\n        #logicInput\n        [kvDiagramCom]=\"kvDiagramCom\"\n        [basicLogicPhraseInfoCom]=\"basicLogicPhraseInfoCom\"\n        [qmcVisualizerCom]=\"qcmvisualizercom\">\n      </app-logic-input>\n    </div>\n    <div class=\"col-12 colMargin\"><app-basic-logic-phrase-info #basicLogicPhraseInfoCom></app-basic-logic-phrase-info></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-kvdiagramm #kvDiagramCom> </app-kvdiagramm></div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-12 colMargin\"><app-qmcvisualizer #qcmvisualizercom> </app-qmcvisualizer></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/app.component.ts":
+/***/ "./src/app/app.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,8 +54,8 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-root',
-            template: __webpack_require__("../../../../../src/app/app.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+            template: __webpack_require__("./src/app/app.component.html"),
+            styles: [__webpack_require__("./src/app/app.component.css")]
         })
     ], AppComponent);
     return AppComponent;
@@ -76,22 +65,22 @@ var AppComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/app.module.ts":
+/***/ "./src/app/app.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_input_logic_input_component__ = __webpack_require__("../../../../../src/app/logic-input/logic-input.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navbar_navbar_component__ = __webpack_require__("../../../../../src/app/navbar/navbar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__("../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__ = __webpack_require__("../../../../../src/app/kvdiagram/kvdiagram.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__("../../../../../src/app/qmcvisualizer/qmcvisualizer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_input_logic_input_component__ = __webpack_require__("./src/app/logic-input/logic-input.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__("./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__kvdiagram_kvdiagram_component__ = __webpack_require__("./src/app/kvdiagram/kvdiagram.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__("./src/app/qmcvisualizer/qmcvisualizer.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -139,40 +128,29 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.css":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.css":
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = ""
 
 /***/ }),
 
-/***/ "../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.html":
+/***/ "./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Information</h4>\n      <table class=\"table table-striped\">\n        <thead>\n          <tr>\n            <th>Key</th>\n            <th>Data</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th scope=\"row\">Ausdruck</th>\n            <td>{{logicPhrase.phrase}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Länge</th>\n            <td>{{logicPhrase.lengh}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Variablen Namen</th>\n            <td>{{logicPhrase.varNames.toString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DF</th>\n            <td>{{logicRootExpressionInDF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Vereinfachte DF</th>\n            <td>{{qmc.getMinmalFormAsString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">DNF</th>\n            <td>{{logicRootExpressionInDNF.phraseToStringWithoutBreakets()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Parsed tree</th>\n            <td>{{logicRootExpression.phraseToString()}}</td>\n          </tr>\n          <tr>\n            <th scope=\"row\">Shunting Yard</th>\n            <td>{{logicRootExpression.shuntedPhrase.toString()}}</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.ts":
+/***/ "./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicLogicPhraseInfoComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__ = __webpack_require__("../../../../../src/app/phrase/logic-phrase.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__ = __webpack_require__("../../../../../src/app/logicExpression/logic-root-expression.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__qmc_qmc__ = __webpack_require__("../../../../../src/app/qmc/qmc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_logic_phrase__ = __webpack_require__("./src/app/phrase/logic-phrase.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logicExpression_logic_root_expression__ = __webpack_require__("./src/app/logicExpression/logic-root-expression.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__qmc_qmc__ = __webpack_require__("./src/app/qmc/qmc.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,8 +207,8 @@ var BasicLogicPhraseInfoComponent = /** @class */ (function () {
     BasicLogicPhraseInfoComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-basic-logic-phrase-info',
-            template: __webpack_require__("../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.css")],
+            template: __webpack_require__("./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.html"),
+            styles: [__webpack_require__("./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.css")],
         }),
         __metadata("design:paramtypes", [])
     ], BasicLogicPhraseInfoComponent);
@@ -241,7 +219,7 @@ var BasicLogicPhraseInfoComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/kv-diagram-model/coordinate.ts":
+/***/ "./src/app/kv-diagram-model/coordinate.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -280,7 +258,7 @@ var Coordinate = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/kv-diagram-model/kv-diagram-entry.ts":
+/***/ "./src/app/kv-diagram-model/kv-diagram-entry.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -467,14 +445,14 @@ var KvDiagramEntry = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/kv-diagram-model/kv-diagram-generator.ts":
+/***/ "./src/app/kv-diagram-model/kv-diagram-generator.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KvDiagramGenerator; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_entry__ = __webpack_require__("../../../../../src/app/kv-diagram-model/kv-diagram-entry.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kvdiagram__ = __webpack_require__("../../../../../src/app/kv-diagram-model/kvdiagram.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kvdiagram_segment__ = __webpack_require__("../../../../../src/app/kv-diagram-model/kvdiagram-segment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_entry__ = __webpack_require__("./src/app/kv-diagram-model/kv-diagram-entry.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kvdiagram__ = __webpack_require__("./src/app/kv-diagram-model/kvdiagram.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kvdiagram_segment__ = __webpack_require__("./src/app/kv-diagram-model/kvdiagram-segment.ts");
 
 
 
@@ -581,7 +559,7 @@ var KvDiagramGenerator = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/kv-diagram-model/kvdiagram-segment.ts":
+/***/ "./src/app/kv-diagram-model/kvdiagram-segment.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -699,15 +677,15 @@ var KVDiagramSegment = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/kv-diagram-model/kvdiagram.ts":
+/***/ "./src/app/kv-diagram-model/kvdiagram.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KVDiagram; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__("../../../../../src/app/phrase/string-methods.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__coordinate__ = __webpack_require__("../../../../../src/app/kv-diagram-model/coordinate.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__qmc_group__ = __webpack_require__("../../../../../src/app/qmc/group.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__qmc_group_box__ = __webpack_require__("../../../../../src/app/qmc/group-box.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__("./src/app/phrase/string-methods.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__coordinate__ = __webpack_require__("./src/app/kv-diagram-model/coordinate.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__qmc_group__ = __webpack_require__("./src/app/qmc/group.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__qmc_group_box__ = __webpack_require__("./src/app/qmc/group-box.ts");
 
 
 
@@ -925,38 +903,27 @@ var KVDiagram = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/kvdiagram/kvdiagram.component.css":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/app/kvdiagram/kvdiagram.component.css":
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = ""
 
 /***/ }),
 
-/***/ "../../../../../src/app/kvdiagram/kvdiagram.component.html":
+/***/ "./src/app/kvdiagram/kvdiagram.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">KV Diagramm</h4>\n    <canvas (click)=\"cklickedCanvas($event)\" (mousemove)=\"canvasMouseMove($event)\"  (mouseenter)=\"canvasMouseEnter()\" (mouseleave)=\"canvasMouseLeave()\"\n            #kvDiagramCanvas width=\"1000\" height=\"800\">\n    </canvas>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/kvdiagram/kvdiagram.component.ts":
+/***/ "./src/app/kvdiagram/kvdiagram.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KVDiagramComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kv_diagram_model_kv_diagram_generator__ = __webpack_require__("../../../../../src/app/kv-diagram-model/kv-diagram-generator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__kv_diagram_model_kv_diagram_generator__ = __webpack_require__("./src/app/kv-diagram-model/kv-diagram-generator.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1041,8 +1008,8 @@ var KVDiagramComponent = /** @class */ (function () {
     KVDiagramComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-kvdiagramm',
-            template: __webpack_require__("../../../../../src/app/kvdiagram/kvdiagram.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/kvdiagram/kvdiagram.component.css")],
+            template: __webpack_require__("./src/app/kvdiagram/kvdiagram.component.html"),
+            styles: [__webpack_require__("./src/app/kvdiagram/kvdiagram.component.css")],
         }),
         __metadata("design:paramtypes", [])
     ], KVDiagramComponent);
@@ -1053,45 +1020,34 @@ var KVDiagramComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logic-input/logic-input.component.css":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/app/logic-input/logic-input.component.css":
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = ""
 
 /***/ }),
 
-/***/ "../../../../../src/app/logic-input/logic-input.component.html":
+/***/ "./src/app/logic-input/logic-input.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "\n  <div class=\"card\">\n    <div class=\"card-block\">\n      <h4 class=\"card-title\">Logische Eingabe</h4>\n      <p class=\"card-text\">Trage hier die logischen Verknüpfungen ein</p>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Logischer Ausdruck</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicPhraseString\" type=\"textarea\" value=\"\" id=\"logicPhrase\" >\n          </textarea>\n        </div>\n      </div>\n      <div class=\"form-group row\">\n        <label for=\"logicPhrase\" class=\"col-2 col-form-label\">Zusätzliche Variablen</label>\n        <div class=\"col-10\">\n          <textarea class=\"form-control\" [(ngModel)]=\"logicExtraVars\" type=\"textarea\" value=\"\" id=\"logicExtraVars\">\n          </textarea>\n        </div>\n\n        <div class=\"col-12\">\n          Hier kannst du zusätzliche Variablen angeben, falls der Logische Ausdruck nicht in der DNF sondern nur in  der DF ist.\n          (Trenne über \" \")\n        </div>\n\n      </div>\n      <div class=\"row\">\n        <br>\n        <div class=\"col-4\">\n          <button type=\"button\" (click)=\"parseLogicPhrase()\"  class=\"btn btn-primary\">Parse</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/logic-input/logic-input.component.ts":
+/***/ "./src/app/logic-input/logic-input.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicInputComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__ = __webpack_require__("../../../../../src/app/phrase/basic-logic-phrase-parser.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__("../../../../../src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__ = __webpack_require__("../../../../../src/app/kvdiagram/kvdiagram.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__ = __webpack_require__("../../../../../src/app/logicExpression/logic-root-expression.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__ = __webpack_require__("./src/app/phrase/basic-logic-phrase-parser.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__basic_logic_phrase_info_basic_logic_phrase_info_component__ = __webpack_require__("./src/app/basic-logic-phrase-info/basic-logic-phrase-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__kvdiagram_kvdiagram_component__ = __webpack_require__("./src/app/kvdiagram/kvdiagram.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logicExpression_logic_root_expression__ = __webpack_require__("./src/app/logicExpression/logic-root-expression.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("./node_modules/lodash/lodash.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__ = __webpack_require__("../../../../../src/app/qmc/qmc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__("../../../../../src/app/qmcvisualizer/qmcvisualizer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__qmc_qmc__ = __webpack_require__("./src/app/qmc/qmc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__qmcvisualizer_qmcvisualizer_component__ = __webpack_require__("./src/app/qmcvisualizer/qmcvisualizer.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1185,8 +1141,8 @@ var LogicInputComponent = /** @class */ (function () {
     LogicInputComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-logic-input',
-            template: __webpack_require__("../../../../../src/app/logic-input/logic-input.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/logic-input/logic-input.component.css")],
+            template: __webpack_require__("./src/app/logic-input/logic-input.component.html"),
+            styles: [__webpack_require__("./src/app/logic-input/logic-input.component.css")],
             providers: [__WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__phrase_basic_logic_phrase_parser__["a" /* BasicLogicPhraseParser */]])
@@ -1198,12 +1154,12 @@ var LogicInputComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-and.ts":
+/***/ "./src/app/logicExpression/logic-and.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicAnd; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1252,12 +1208,12 @@ var LogicAnd = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-bracket-close.ts":
+/***/ "./src/app/logicExpression/logic-bracket-close.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicBracketClose; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1293,12 +1249,12 @@ var LogicBracketClose = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-bracket-open.ts":
+/***/ "./src/app/logicExpression/logic-bracket-open.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicBracketOpen; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1334,7 +1290,7 @@ var LogicBracketOpen = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-expression-abstract.ts":
+/***/ "./src/app/logicExpression/logic-expression-abstract.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1418,12 +1374,12 @@ var AbstractLogicExpression = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-neg.ts":
+/***/ "./src/app/logicExpression/logic-neg.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicNeg; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1473,12 +1429,12 @@ var LogicNeg = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-or.ts":
+/***/ "./src/app/logicExpression/logic-or.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicOr; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1527,23 +1483,23 @@ var LogicOr = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-root-expression.ts":
+/***/ "./src/app/logicExpression/logic-root-expression.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicRootExpression; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_var__ = __webpack_require__("../../../../../src/app/logicExpression/logic-var.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_and__ = __webpack_require__("../../../../../src/app/logicExpression/logic-and.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_or__ = __webpack_require__("../../../../../src/app/logicExpression/logic-or.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logic_neg__ = __webpack_require__("../../../../../src/app/logicExpression/logic-neg.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logic_bracket_close__ = __webpack_require__("../../../../../src/app/logicExpression/logic-bracket-close.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_bracket_open__ = __webpack_require__("../../../../../src/app/logicExpression/logic-bracket-open.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shunting_yard__ = __webpack_require__("../../../../../src/app/logicExpression/shunting-yard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_var__ = __webpack_require__("./src/app/logicExpression/logic-var.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_and__ = __webpack_require__("./src/app/logicExpression/logic-and.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_or__ = __webpack_require__("./src/app/logicExpression/logic-or.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__logic_neg__ = __webpack_require__("./src/app/logicExpression/logic-neg.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__logic_bracket_close__ = __webpack_require__("./src/app/logicExpression/logic-bracket-close.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__logic_bracket_open__ = __webpack_require__("./src/app/logicExpression/logic-bracket-open.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shunting_yard__ = __webpack_require__("./src/app/logicExpression/shunting-yard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__("./node_modules/lodash/lodash.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__ = __webpack_require__("../../../../../src/app/logicExpression/logic-tree-utils.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__phrase_string_methods__ = __webpack_require__("../../../../../src/app/phrase/string-methods.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__logic_tree_utils__ = __webpack_require__("./src/app/logicExpression/logic-tree-utils.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__phrase_string_methods__ = __webpack_require__("./src/app/phrase/string-methods.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1701,15 +1657,15 @@ var LogicRootExpression = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-tree-utils.ts":
+/***/ "./src/app/logicExpression/logic-tree-utils.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicTreeUtils; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_or__ = __webpack_require__("../../../../../src/app/logicExpression/logic-or.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_and__ = __webpack_require__("../../../../../src/app/logicExpression/logic-and.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_neg__ = __webpack_require__("../../../../../src/app/logicExpression/logic-neg.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_var__ = __webpack_require__("../../../../../src/app/logicExpression/logic-var.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_or__ = __webpack_require__("./src/app/logicExpression/logic-or.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_and__ = __webpack_require__("./src/app/logicExpression/logic-and.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_neg__ = __webpack_require__("./src/app/logicExpression/logic-neg.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logic_var__ = __webpack_require__("./src/app/logicExpression/logic-var.ts");
 
 
 
@@ -1830,12 +1786,12 @@ var LogicTreeUtils = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/logic-var.ts":
+/***/ "./src/app/logicExpression/logic-var.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogicVar; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("../../../../../src/app/logicExpression/logic-expression-abstract.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_expression_abstract__ = __webpack_require__("./src/app/logicExpression/logic-expression-abstract.ts");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1893,14 +1849,14 @@ var LogicVar = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "../../../../../src/app/logicExpression/shunting-yard.ts":
+/***/ "./src/app/logicExpression/shunting-yard.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShuntingYard; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_var__ = __webpack_require__("../../../../../src/app/logicExpression/logic-var.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_bracket_open__ = __webpack_require__("../../../../../src/app/logicExpression/logic-bracket-open.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_bracket_close__ = __webpack_require__("../../../../../src/app/logicExpression/logic-bracket-close.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__logic_var__ = __webpack_require__("./src/app/logicExpression/logic-var.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_bracket_open__ = __webpack_require__("./src/app/logicExpression/logic-bracket-open.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logic_bracket_close__ = __webpack_require__("./src/app/logicExpression/logic-bracket-close.ts");
 
 
 
@@ -1955,37 +1911,26 @@ var ShuntingYard = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/navbar/navbar.component.css":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/app/navbar/navbar.component.css":
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = ""
 
 /***/ }),
 
-/***/ "../../../../../src/app/navbar/navbar.component.html":
+/***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<nav class=\"navbar navbar-toggleable-md navbar-light bg-faded\">\n  <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <a class=\"navbar-brand\" href=\"#\">KV-Toolbox</a>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n    </ul>\n  </div>\n</nav>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/navbar/navbar.component.ts":
+/***/ "./src/app/navbar/navbar.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2004,8 +1949,8 @@ var NavbarComponent = /** @class */ (function () {
     NavbarComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-navbar',
-            template: __webpack_require__("../../../../../src/app/navbar/navbar.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/navbar/navbar.component.css")]
+            template: __webpack_require__("./src/app/navbar/navbar.component.html"),
+            styles: [__webpack_require__("./src/app/navbar/navbar.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], NavbarComponent);
@@ -2016,14 +1961,14 @@ var NavbarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/phrase/basic-logic-phrase-parser.ts":
+/***/ "./src/app/phrase/basic-logic-phrase-parser.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicLogicPhraseParser; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_phrase__ = __webpack_require__("../../../../../src/app/phrase/logic-phrase.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__string_methods__ = __webpack_require__("../../../../../src/app/phrase/string-methods.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__logic_phrase__ = __webpack_require__("./src/app/phrase/logic-phrase.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__string_methods__ = __webpack_require__("./src/app/phrase/string-methods.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2099,7 +2044,7 @@ var BasicLogicPhraseParser = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/phrase/logic-phrase.ts":
+/***/ "./src/app/phrase/logic-phrase.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2152,7 +2097,7 @@ var LogicPhrase = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/phrase/string-methods.ts":
+/***/ "./src/app/phrase/string-methods.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2179,12 +2124,12 @@ var StringMethods = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmc/group-box.ts":
+/***/ "./src/app/qmc/group-box.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupBox; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_model_coordinate__ = __webpack_require__("../../../../../src/app/kv-diagram-model/coordinate.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__kv_diagram_model_coordinate__ = __webpack_require__("./src/app/kv-diagram-model/coordinate.ts");
 
 var GroupBox = /** @class */ (function () {
     function GroupBox(assignedGroup) {
@@ -2294,7 +2239,7 @@ var GroupBox = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmc/group.ts":
+/***/ "./src/app/qmc/group.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2349,12 +2294,12 @@ var Group = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmc/primimplikante.ts":
+/***/ "./src/app/qmc/primimplikante.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Primimplikante; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__("../../../../../src/app/phrase/string-methods.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__phrase_string_methods__ = __webpack_require__("./src/app/phrase/string-methods.ts");
 
 var Primimplikante = /** @class */ (function () {
     function Primimplikante(varNames, decEquivalents) {
@@ -2496,14 +2441,14 @@ var Primimplikante = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmc/qmc.ts":
+/***/ "./src/app/qmc/qmc.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMC; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__primimplikante__ = __webpack_require__("../../../../../src/app/qmc/primimplikante.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__ = __webpack_require__("../../../../../src/app/phrase/string-methods.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__primimplikante__ = __webpack_require__("./src/app/qmc/primimplikante.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__phrase_string_methods__ = __webpack_require__("./src/app/phrase/string-methods.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__("./node_modules/lodash/lodash.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
 
 
@@ -2782,38 +2727,27 @@ var QMC = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmcvisualizer/qmcvisualizer.component.css":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/app/qmcvisualizer/qmcvisualizer.component.css":
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
+module.exports = ""
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmcvisualizer/qmcvisualizer.component.html":
+/***/ "./src/app/qmcvisualizer/qmcvisualizer.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"card\">\n  <div class=\"card-block\">\n    <h4 class=\"card-title\">QMC</h4>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Vereinfachungstabelle</h5>\n      <ng-container *ngFor= \"let table of qmc.simplificationTable; let myIndex = index\">\n        <div class=\"col-md-4\">\n          <table class=\"table table-bordered\">\n            <thead>\n              <tr scope=\"row\">\n                <th>Group</th>\n                <th>DCEq.</th>\n                <th>Prim.</th>\n                <th>Used</th>\n              </tr>\n            </thead>\n\n            <tbody>\n              <ng-container *ngFor= \"let group of table let groupIndex = index\">\n                <ng-container *ngFor= \"let primeImplicant of group\">\n                  <ng-container></ng-container>\n                  <tr class=\"{{getTableBackground(groupIndex)}}\" scope=\"row\">\n                    <th>\n                      {{groupIndex}}\n                    </th>\n                    <td>\n                      {{primeImplicant.getDcEquivalentsString()}}\n                    </td>\n                    <td>\n                      {{primeImplicant.toString()}}\n                    </td>\n                    <td>\n                      <ng-container *ngIf=\"primeImplicant._usedForCombination\">\n                        &#10004;\n                      </ng-container>\n                      <ng-container *ngIf=\"!primeImplicant._usedForCombination\">\n                        &#10008;\n                      </ng-container>\n                    </td>\n                  </tr>\n                </ng-container>\n              </ng-container>\n            </tbody>\n\n          </table>\n        </div>\n\n      </ng-container>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Auswahl der wesentlichen Primimplikanten</h5>\n      <div class=\"col-md-4\">\n        <table class=\"table table-bordered\">\n          <thead>\n          <tr scope=\"row\">\n            <th>Prim/DCEq</th>\n            <ng-container *ngFor=\"let dcEq of qmc.existingDcEquivalebnts\">\n              <th>{{dcEq}}</th>\n            </ng-container>\n          </tr>\n          </thead>\n\n          <tbody>\n            <ng-container *ngFor=\"let prim of qmc.restMatrix; let indexI = index\">\n                <tr scope=\"row\">\n                  <td class=\"{{getEssentialPrimBackground(indexI)}}\">\n                    {{qmc.notCombinedPrimimplikanten[indexI]}}\n                  </td>\n                  <ng-container *ngFor=\"let dcEq of prim; let dcEqNumber = index\">\n                    <ng-container *ngIf=\"dcEq\">\n                      <td class=\"{{getEssentialPrimDcBackground(dcEqNumber)}}\">\n                        {{dcEq}}\n                      </td>\n                    </ng-container>\n\n                  </ng-container>\n                </tr>\n            </ng-container>\n          </tbody>\n\n        </table>\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <h5 class=\"col-md-12\">Minimale Form</h5>\n      <div class=\"col-md-4\">\n        {{this.qmc.getMinmalFormAsString()}}\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/qmcvisualizer/qmcvisualizer.component.ts":
+/***/ "./src/app/qmcvisualizer/qmcvisualizer.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QMCVisualizerComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__qmc_qmc__ = __webpack_require__("../../../../../src/app/qmc/qmc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__qmc_qmc__ = __webpack_require__("./src/app/qmc/qmc.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2856,8 +2790,8 @@ var QMCVisualizerComponent = /** @class */ (function () {
     QMCVisualizerComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-qmcvisualizer',
-            template: __webpack_require__("../../../../../src/app/qmcvisualizer/qmcvisualizer.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/qmcvisualizer/qmcvisualizer.component.css")]
+            template: __webpack_require__("./src/app/qmcvisualizer/qmcvisualizer.component.html"),
+            styles: [__webpack_require__("./src/app/qmcvisualizer/qmcvisualizer.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], QMCVisualizerComponent);
@@ -2868,7 +2802,7 @@ var QMCVisualizerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/environments/environment.ts":
+/***/ "./src/environments/environment.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2884,15 +2818,15 @@ var environment = {
 
 /***/ }),
 
-/***/ "../../../../../src/main.ts":
+/***/ "./src/main.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/esm5/platform-browser-dynamic.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("./node_modules/@angular/platform-browser-dynamic/esm5/platform-browser-dynamic.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("./src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 
 
 
@@ -2908,7 +2842,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* pl
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("../../../../../src/main.ts");
+module.exports = __webpack_require__("./src/main.ts");
 
 
 /***/ })
